@@ -46,7 +46,7 @@ export function sumNum(first: number, second: number) {
   return sum;
 }
 
-sumNum(6, 3);
+sumNum(5, 3);
 
 function formatText(word: string, textFormat: string) {
   if (textFormat === 'uppercase') {
