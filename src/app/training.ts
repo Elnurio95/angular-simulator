@@ -41,14 +41,14 @@ let user: IUser[] = [
 let status: 'loading' | 'success' | 'error';
 let textFormat: 'uppercase' | 'lowercase' | 'capitalize';
 
-export function sumNum(first: number, second: number) {
+export function getSum(first: number, second: number): number {
   const sum = first + second;
   return sum;
 }
 
-sumNum(5, 3);
+getSum(5, 3);
 
-function formatText(word: string, textFormat: string) {
+function getFormatText(word: string, textFormat: string): string {
   if (textFormat === 'uppercase') {
     return word.toUpperCase();
   }
@@ -59,9 +59,9 @@ function formatText(word: string, textFormat: string) {
   return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
 }
 
-formatText('Hello', 'lowercase');
+getFormatText('Hello', 'lowercase');
 
-function removeSymbol(word: string, symbol: string) {
+function removeSymbol(word: string, symbol: string): string {
   return word.split(symbol).join('');
 }
 
