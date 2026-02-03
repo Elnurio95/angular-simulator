@@ -48,7 +48,7 @@ export function getSum(first: number, second: number): number {
 
 getSum(5, 3);
 
-function getFormatText(word: string, textFormat: string): string {
+function changeFormatText(word: string, textFormat: string): string {
   if (textFormat === 'uppercase') {
     return word.toUpperCase();
   }
@@ -59,7 +59,7 @@ function getFormatText(word: string, textFormat: string): string {
   return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
 }
 
-getFormatText('Hello', 'lowercase');
+changeFormatText('Hello', 'lowercase');
 
 function removeSymbol(word: string, symbol: string): string {
   return word.split(symbol).join('');
@@ -67,5 +67,5 @@ function removeSymbol(word: string, symbol: string): string {
 
 removeSymbol('names', 's');
 
-const person = user.filter((el) => el.age > 26);
+const person: IUser[] = user.filter((el) => el.age > 26);
 console.log(person);
