@@ -38,8 +38,8 @@ let user: IUser[] = [
   },
 ];
 
-let status: 'loading' | 'success' | 'error';
-let textFormat: 'uppercase' | 'lowercase' | 'capitalize';
+type UploadStatus = 'loading' | 'success' | 'error';
+type TextFormat = 'uppercase' | 'lowercase' | 'capitalize';
 
 export function getSum(first: number, second: number): number {
   const sum = first + second;
@@ -48,11 +48,11 @@ export function getSum(first: number, second: number): number {
 
 getSum(5, 3);
 
-function changeFormatText(word: string, textFormat: string): string {
-  if (textFormat === 'uppercase') {
+function changeFormatText(word: string, TextFormat: string): string {
+  if (TextFormat === 'uppercase') {
     return word.toUpperCase();
   }
-  if (textFormat === 'lowercase') {
+  if (TextFormat === 'lowercase') {
     return word.toLowerCase();
   }
 
@@ -67,5 +67,5 @@ function removeSymbol(word: string, symbol: string): string {
 
 removeSymbol('names', 's');
 
-const person: IUser[] = user.filter((el) => el.age > 26);
+const person: IUser[] = user.filter((el: IUser) => el.age > 26);
 console.log(person);
