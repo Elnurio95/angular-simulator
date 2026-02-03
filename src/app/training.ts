@@ -48,11 +48,11 @@ export function getSum(first: number, second: number): number {
 
 getSum(5, 3);
 
-function changeFormatText(word: string, TextFormat: string): string {
-  if (TextFormat === 'uppercase') {
+function changeFormatText(word: string, textFormat: TextFormat): string {
+  if (textFormat === 'uppercase') {
     return word.toUpperCase();
   }
-  if (TextFormat === 'lowercase') {
+  if (textFormat === 'lowercase') {
     return word.toLowerCase();
   }
 
