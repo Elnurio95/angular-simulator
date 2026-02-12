@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Colors } from '../enums/Colors';
+import { Color } from '../enums/Color';
 
 @Component({
   selector: 'app-root',
@@ -15,8 +15,10 @@ export class AppComponent {
     this.getEntries();
   }
 
-  isColor(color: Colors): boolean {
-    if (color === Colors.BLUE || color === Colors.RED || color === Colors.GREEN) {
+  isColor(color: Color): boolean {
+    const mainArr = Color;
+
+    if (color === mainArr.BLUE || color === mainArr.RED || color === mainArr.GREEN) {
       return true;
     }
 

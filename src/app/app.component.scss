@@ -1,7 +1,7 @@
 .header {
   position: relative;
   height: 985px;
-  background-image: url('/background-images/main-background.png');
+  background-image: url('/background-images/mountain-bg.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -23,7 +23,7 @@
   }
 }
 
-.consult__btn {
+#consult__btn {
   padding: 12px 24px;
   color: var(--main-color);
   background-color: var(--btn-background);
@@ -80,15 +80,6 @@
   }
 }
 
-// .choose__subject {
-//   display: flex;
-//   justify-content: space-between;
-//   padding: 14px 16px;
-//   border: 1px solid #e1e3e4;
-//   border-radius: 8px;
-//   margin-bottom: 8px;
-// }
-
 .choose__subject {
   position: relative;
   display: flex;
@@ -107,7 +98,7 @@
   transform: translateY(-50%);
   width: 18px;
   height: 18px;
-  background: url('/images/calendar.svg') no-repeat center;
+  background: url('/images/icon-calendar.svg') no-repeat center;
   background-size: contain;
   pointer-events: none;
 }
@@ -129,28 +120,13 @@
   cursor: pointer;
 }
 
-// .choose__date-input {
-//   background: transparent;
-//   color: transparent;
-//   border: none;
-//   cursor: pointer;
-// }
-
-// .choose__date-input::-webkit-calendar-picker-indicator {
-//   opacity: 1;
-//   cursor: pointer;
-//   filter: invert(1);
-//   width: 18px;
-//   height: 16px;
-// }
-
 .form {
   display: flex;
   color: var(--main-color);
   align-items: center;
 }
 
-.search__btn {
+#search__btn {
   width: 213px;
   height: 52px;
   border: none;
