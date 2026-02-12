@@ -1,1 +1,68 @@
-<h1 style="display: flex; justify-content: center; font-family: sans-serif;">NGX SIMULATOR</h1>
+<header class="header">
+    <div class="container">
+        <div class="container__wrapper justify-content">
+            <div class="company">
+                <div class="company__logo">
+                    <img src="/images/logo.svg" alt="logo">
+                </div>
+                <div>
+                    <p class="company__name">{{ companyName }}</p>
+                </div>
+            </div>
+            <nav class="nav gap fs-16 fw-600">
+                <a href="#">Главная</a>
+                <a href="#">Про гида</a>
+                <a href="#">Программа тура</a>
+                <a href="#">Стоимость</a>
+                <a href="#">Блог</a>
+                <a href="#">Контакты</a>
+                <button class="consult__btn fs-16 fw-600">Консультация</button>
+            </nav>
+        </div>
+        <div class="header__form">
+            <div class="header__slogan fw-400">
+                <p class="slogan">
+                    Насладись прогулкой в горах <br>
+                    с командой единомышленников
+                </p>
+            </div>
+            <div class="choice__field gap">
+                <form action="" class="form gap">
+                    <div class="choice">
+                        <div class="choose__subject">
+                            <label for="location" class="fs-16 fw-700">Локация для тура</label>
+                            <select name="location" id="location"></select>
+                        </div>
+                        <option value="" class="fs-14 fw-400" disabled selected>выберите из списка</option>
+                    </div>
+                    <div class="choice">
+                        <!-- <div class="choose__subject">
+                            <label for="date" class="fs-16 fw-700">Дата похода</label>
+                            <input type="date" id="date" name="date" class="choose__date-input">
+                        </div> -->
+                        <div class="choose__subject">
+                            <label for="date" class="fs-16 fw-700">Дата похода</label>
+
+                            <input type="date" id="date" name="date" class="choose__date-input">
+
+                            <span class="choose__date-icon"></span>
+                        </div>
+
+                        <option value="" class="fs-14 fw-400" disabled selected>укажите дату</option>
+                    </div>
+                    <div class="choice">
+                        <div class="choose__subject">
+                            <label for="participants" class="fs-16 fw-700">Участники</label>
+                            <select name="participants" id="participants"></select>
+                        </div>
+                        <option value="" class="fs-14 fw-400" disabled selected>выберите из списка</option>
+                    </div>
+                </form>
+                <button class="search__btn fw-700 fs-16">Найти программу</button>
+            </div>
+        </div>
+    </div>
+</header>
+<section class="section about-us">
+
+</section>
