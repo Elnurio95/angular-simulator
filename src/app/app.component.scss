@@ -1,7 +1,7 @@
 .header {
   position: relative;
   height: 985px;
-  background-image: url('/background-images/mountain-bg.png');
+  background-image: url('/background-images/mountains-bg.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -98,7 +98,7 @@
   transform: translateY(-50%);
   width: 18px;
   height: 18px;
-  background: url('/images/icon-calendar.svg') no-repeat center;
+  background: url('/images/calendar-icon.svg') no-repeat center;
   background-size: contain;
   pointer-events: none;
 }

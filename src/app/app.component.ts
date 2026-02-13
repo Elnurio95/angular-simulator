@@ -9,20 +9,14 @@ import { Color } from '../enums/Color';
 })
 export class AppComponent {
   companyName: string = 'румтибет';
-
   constructor() {
     this.setLastVisit();
     this.getEntries();
   }
 
   isColor(color: Color): boolean {
-    const mainArr = Color;
-
-    if (color === mainArr.BLUE || color === mainArr.RED || color === mainArr.GREEN) {
-      return true;
-    }
-
-    return false;
+    const mainArr: Color[] = [Color.BLUE, Color.RED, Color.GREEN];
+    return mainArr.includes(color);
   }
 
   setLastVisit(): void {
