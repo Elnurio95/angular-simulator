@@ -1,4 +1,5 @@
 class Collection<T> {
+
   arr: T[] = [];
 
   constructor(arr: T[]) {
@@ -25,10 +26,9 @@ class Collection<T> {
     const newItem = this.arr[index];
     return newItem;
   }
+
 }
 
-const numArr = new Collection<number>([1, 2, 3]);
-const strArr = new Collection<string>(['cat', 'dog', 'bird']);
+const numArr: Collection<number> = new Collection<number>([1, 2, 3]);
+const strArr: Collection<string> = new Collection<string>(['cat', 'dog', 'bird']);
 
-console.log(numArr.getItem(2));
-console.log(strArr.removeItem(2));
