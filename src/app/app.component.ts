@@ -7,11 +7,13 @@ import { Color } from '../enums/Color';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
+
 export class AppComponent {
+
   companyName: string = 'румтибет';
   constructor() {
     this.setLastVisit();
-    this.getEntries();
+    this.setQuantity();
   }
 
   isColor(color: Color): boolean {
@@ -20,13 +22,14 @@ export class AppComponent {
   }
 
   setLastVisit(): void {
-    const currenttDate = new Date().toISOString();
-    localStorage.setItem('last-date', currenttDate);
+    const currentDate: string = new Date().toISOString();
+    localStorage.setItem('last-date', currentDate);
   }
 
-  getEntries(): void {
-    const key = 'pageVisits';
-    const visits = Number(localStorage.getItem(key) || '0') + 1;
+  setQuantity(): void {
+    const key: string = 'pageVisits';
+    const visits: number = Number(localStorage.getItem(key) || '0') + 1;
     localStorage.setItem(key, String(visits));
   }
+
 }
