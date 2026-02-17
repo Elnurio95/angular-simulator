@@ -1,1 +1,77 @@
-<h1 style="display: flex; justify-content: center; font-family: sans-serif;">NGX SIMULATOR</h1>
+<header class="header">
+    <div class="container">
+        <div class="container__wrapper justify-content">
+            <div class="company">
+                <div class="company__logo">
+                    <img src="/images/mountain-logo.svg" alt="logo">
+                </div>
+                <div>
+                    <p class="company__name">{{ companyName }}</p>
+                </div>
+            </div>
+            <nav class="nav gap fs-16 fw-600">
+                <a href="#" id="nav-link-main">Главная</a>
+                <a href="#" id="nav-link-guide">Про гида</a>
+                <a href="#" id="nav-link-tour">Программа тура</a>
+                <a href="#" id="nav-link-price">Стоимость</a>
+                <a href="#" id="nav-link-blog">Блог</a>
+                <a href="#" id="nav-link-contacts">Контакты</a>
+                <button id="consult__btn" class="fs-16 fw-600">Консультация</button>
+            </nav>
+        </div>
+        <div class="header__form">
+            <div class="header__slogan fw-400">
+                <p class="slogan">
+                    Насладись прогулкой в горах <br>
+                    с командой единомышленников
+                </p>
+            </div>
+            <div class="choice__field gap">
+                <form action="" class="form gap">
+                    <div class="choice">
+                        <div class="choose__subject">
+                            <label for="location" class="fs-16 fw-700">Локация для тура</label>
+                            <select name="location" id="location">
+                                <option value=""></option>
+                                <option value="Baku">Баку</option>
+                                <option value="Batumi">Батуми</option>
+                                <option value="Derbent">Дербент</option>
+                                <option value="Sochi">Сочи</option>
+                                <option value="Altay">Алтай</option>
+                            </select>
+                        </div>
+                        <option value="" class="fs-14 fw-400" disabled selected>выберите из списка</option>
+                    </div>
+                    <div class="choice">
+                        <div class="choose__subject">
+                            <label for="date" class="fs-16 fw-700">Дата похода</label>
+
+                            <input type="date" id="date" name="date" class="choose__date-input">
+
+                            <span class="choose__date-icon"></span>
+                        </div>
+
+                        <option value="" class="fs-14 fw-400" disabled selected>укажите дату</option>
+                    </div>
+                    <div class="choice">
+                        <div class="choose__subject">
+                            <label for="participants" class="fs-16 fw-700">Участники</label>
+                            <select name="participants" id="participants">
+                                <option value="name">Илья</option>
+                                <option value="name">Эльнур</option>
+                                <option value="name">Сергей</option>
+                                <option value="name">Ильнур</option>
+                                <option value="name">Владислав</option>
+                            </select>
+                        </div>
+                        <option value="" class="fs-14 fw-400" disabled selected>выберите из списка</option>
+                    </div>
+                </form>
+                <button id="search-btn" class="fw-700 fs-16">Найти программу</button>
+            </div>
+        </div>
+    </div>
+</header>
+<section class="section about-us">
+
+</section>
