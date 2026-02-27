@@ -41,8 +41,8 @@ export class AppComponent {
   isLoading: boolean = true; 
   input: string = ''; 
 
-  tasks = 'Задачи'; 
-  count = false; 
+  tasks: string = 'Задачи'; 
+  count: boolean = false; 
 
   showTask() {
     return this.count = !this.count;  
@@ -52,7 +52,7 @@ export class AppComponent {
     return this.count = false; 
   }
 
-  sum = 0; 
+  sum: number = 0; 
 
   increment(): number {   
     return this.sum++; 
