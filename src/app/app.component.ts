@@ -18,7 +18,7 @@ export class AppComponent {
   tourDate: string = ''; 
   tourParticipant: string = '';
   
-   today: Date = new Date(); 
+  today: Date = new Date(); 
 
   constructor() {
     this.setLastVisit();
@@ -108,21 +108,21 @@ export class AppComponent {
   tours: ITour[] = [
     {
       id: 1,
-      image: './images/guide-trip-icon.png',
+      image: 'guide-trip-icon',
       title: 'Опытный гид',
       description:
         'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
     },
     {
       id: 2,
-      image: '/images/safety-icon.png',
+      image: 'safety-icon',
       title: 'Безопасный поход',
       description:
         'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
     },
     {
       id: 3,
-      image: '/images/loyality-icon.png',
+      image: 'loyality-icon',
       title: 'Лояльные цены',
       description:
         'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
