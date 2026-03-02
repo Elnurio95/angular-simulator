@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
 })
 export class AppComponent {
+
   companyName: string = 'румтибет';
 
   tourLocation: string = ''; 
@@ -22,12 +23,7 @@ export class AppComponent {
 
   constructor() {
     this.setLastVisit();
-    this.setQuantity();
-    this.removedInscription();
-    this.increment(); 
-    this.decrement(); 
-    this.showTask(); 
-    this.removeTask(); 
+    this.setQuantity(); 
 
     setInterval(() => {
       this.today = new Date();
@@ -43,33 +39,8 @@ export class AppComponent {
 
   tasks: string = 'Задачи'; 
   count: boolean = false; 
-
-  showTask() {
-    return this.count = !this.count;  
-  }
-
-  removeTask() {
-    return this.count = false; 
-  }
-
   sum: number = 0; 
-
-  increment(): number {   
-    return this.sum++; 
-  }
-
-  decrement(): number {
-    if (this.sum > 0) {
-      return this.sum--; 
-    } 
-
-    return this.sum; 
-  }
-
-  removedInscription(): void {
-    const dateInscription = document.querySelector('.date-inscription'); 
-    dateInscription?.classList.add('removeLettering');
-  }
+  isDateActive = false;
 
   get isFormInvalid(): boolean {
     return !this.tourLocation || !this.tourDate || !this.tourParticipant;
@@ -79,13 +50,13 @@ export class AppComponent {
 
   onMouseOver(index: number) {
     this.animationIndex = index; 
-    const animation = document.querySelector('.tour__content'); 
-    const tourTitle = document.querySelector('.tour-title'); 
+    const animation = document.querySelector<HTMLDivElement>('.tour__content'); 
+    const tourTitle = document.querySelector<HTMLDivElement>('.tour-title'); 
     tourTitle?.classList.add('tour-title');
     animation?.classList.add('animation');
   }
 
-  onMouseLeave() {
+  onMouseLeave():void  {
     this.animationIndex = null; 
   }
 
@@ -128,4 +99,5 @@ export class AppComponent {
         'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
     },
   ];
+
 }
