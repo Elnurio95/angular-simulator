@@ -50,8 +50,8 @@ export class AppComponent {
 
   onMouseOver(index: number) {
     this.animationIndex = index; 
-    const animation = document.querySelector<HTMLDivElement>('.tour__content'); 
-    const tourTitle = document.querySelector<HTMLDivElement>('.tour-title'); 
+    const animation: HTMLDivElement | null = document.querySelector<HTMLDivElement>('.tour__content'); 
+    const tourTitle: HTMLHeadingElement | null = document.querySelector<HTMLDivElement>('.tour-title'); 
     tourTitle?.classList.add('tour-title');
     animation?.classList.add('animation');
   }
