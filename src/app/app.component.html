@@ -33,15 +33,14 @@
             </div>
             @if(count) {         
                 <div class="click-btn tasks">
-                    <button id="click-plus" class="click fs-24" (click)="sum = sum + 1">+
-                    </button>
+                    <button id="click-plus" class="click fs-24" (click)="sum = sum + 1">+</button>
                     <p class="count">{{ sum }}</p>
                     <button 
                     id="click-minus" 
                     class="click fs-24" 
                     (click)="sum > 0 && (sum = sum - 1)" 
-                    [disabled]="sum === 0">-
-                    </button>
+                    [disabled]="sum === 0"
+                    >-</button>
                 </div>
             }
         </div>
@@ -62,7 +61,8 @@
                                 id="tour-location" 
                                 class="fs-16 fw-700"
                                 [(ngModel)]="tourLocation" 
-                                name="tourLocation">
+                                name="tourLocation"
+                                >
                             <select name="location" id="location" [(ngModel)]="tourLocation">
                                 <option value="" disabled selected>выберите из списка</option>
                                 <option value="Baku">Баку</option>
@@ -86,7 +86,8 @@
                                     name="date" 
                                     class="choose__date-input"
                                     (focus)="isDateActive = true" 
-                                    [(ngModel)]="tourDate">
+                                    [(ngModel)]="tourDate"
+                                    >
                                 <span class="choose__date-icon"></span>
                             }
                         </div>
@@ -100,7 +101,8 @@
                                 class="fs-16 fw-700" 
                                 id="choose-participants"
                                 [(ngModel)]="tourParticipant" 
-                                name="participant">
+                                name="participant"
+                                >
                             <select name="participants" id="participants" [(ngModel)]="tourParticipant">
                                 <option value="name"></option>
                                 <option value="name">Илья</option>
@@ -129,8 +131,7 @@
             </div>
             <div class="wrapper-history">
                 <span class="about-trip fs-24">о нашем походе</span>
-                <p class="trip-title fs-32 fw-800">Исследуйте все горные
-                    массивы мира вместе с нами</p>
+                <p class="trip-title fs-32 fw-800">Исследуйте все горные массивы мира вместе с нами</p>
                 <p class="history fs-18">
                     Его корни уходят в один фрагмент классической латыни 45 года
                     н.э., то есть более двух тысячелетий
@@ -140,9 +141,7 @@
                     его поисками в классической латинской
                     литературе.
                 </p>
-                <button id="tour-program" class="primary-btn fs-16">
-                    Программа
-                </button>
+                <button id="tour-program" class="primary-btn fs-16">Программа</button>
             </div>
         </div>
     </div>
@@ -151,12 +150,8 @@
     <div class="container">
         <div class="wrapper">
             <div class="program__info">
-                <p class="sub-title fs-24">
-                    наше предложение
-                </p>
-                <p class="program__title fs-32 fw-800">
-                    Лучшие программы для тебя
-                </p>
+                <p class="sub-title fs-24">наше предложение</p>
+                <p class="program__title fs-32 fw-800">Лучшие программы для тебя</p>
                 <p class="prorgam__history fs-18 fw-400">
                     Его корни уходят в один фрагмент классической латыни 45 года
                     н.э., то есть более двух тысячелетий
@@ -169,17 +164,18 @@
                             <div class="tour__content flex" 
                                 (mouseover)="onMouseOver(i)" 
                                 (mouseleave)="onMouseLeave()"
-                                [class.animation]="animationIndex === i">
+                                [class.animation]="animationIndex === i"
+                                >
                                 <div class="trip">
                                     @switch (tour.id) {
                                         @case (1) {
-                                        <img src="/images/guide-trip-icon.svg" alt="guide" class="tour-icon">
+                                            <img src="/images/guide-trip-icon.svg" alt="guide" class="tour-icon">
                                         }
                                         @case (2) {
-                                        <img src="/images/safety-icon.svg" alt="safety" class="tour-icon">
+                                            <img src="/images/safety-icon.svg" alt="safety" class="tour-icon">
                                         }
                                         @case (3) {
-                                        <img src="/images/loyality-icon.svg" alt="loyality" class="tour-icon">
+                                            <img src="/images/loyality-icon.svg" alt="loyality" class="tour-icon">
                                         }
                                     }
                                 </div>
@@ -191,9 +187,7 @@
                         </div>
                     }
                 </div>
-                <button class="primary-btn tour-price-btn fw-600 fs-16">
-                    Стоимость программ
-                </button>
+                <button class="primary-btn tour-price-btn fw-600 fs-16">Стоимость программ</button>
             </div>
             <div class="program__photos">
                 <div class="photos__tours-first flex">
