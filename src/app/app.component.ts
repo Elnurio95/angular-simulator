@@ -39,8 +39,8 @@ export class AppComponent {
 
   tasks: string = 'Задачи'; 
   count: boolean = false; 
-  sum: number = 0; 
-  isDateActive = false;
+  counter: number = 0; 
+  isDateActive: boolean = false;
 
   get isFormInvalid(): boolean {
     return !this.tourLocation || !this.tourDate || !this.tourParticipant;
@@ -48,15 +48,11 @@ export class AppComponent {
 
   animationIndex: number | null = null; 
 
-  onMouseOver(index: number) {
+  onMouseOver(index: number): void {
     this.animationIndex = index; 
-    const animation: HTMLDivElement | null = document.querySelector<HTMLDivElement>('.tour__content'); 
-    const tourTitle: HTMLHeadingElement | null = document.querySelector<HTMLDivElement>('.tour-title'); 
-    tourTitle?.classList.add('tour-title');
-    animation?.classList.add('animation');
   }
 
-  onMouseLeave():void  {
+  onMouseLeave(): void {
     this.animationIndex = null; 
   }
 
@@ -76,7 +72,7 @@ export class AppComponent {
     localStorage.setItem(key, String(visits));
   }
 
-  tours: ITour[] = [
+  tours: ITour[] = [  
     {
       id: 1,
       image: 'guide-trip-icon',

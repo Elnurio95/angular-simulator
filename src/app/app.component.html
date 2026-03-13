@@ -33,13 +33,13 @@
             </div>
             @if(count) {         
                 <div class="click-btn tasks">
-                    <button id="click-plus" class="click fs-24" (click)="sum = sum + 1">+</button>
-                    <p class="count">{{ sum }}</p>
+                    <button id="click-plus" class="click fs-24" (click)="counter = counter + 1">+</button>
+                    <p class="count">{{ counter }}</p>
                     <button 
                         id="click-minus" 
                         class="click fs-24" 
-                        (click)="sum > 0 && (sum = sum - 1)" 
-                        [disabled]="sum === 0"
+                        (click)="counter > 0 && (counter = counter - 1)" 
+                        [disabled]="counter === 0"
                     >-</button>
                 </div>
             }
@@ -167,17 +167,7 @@
                                 [class.animation]="animationIndex === i"
                             >
                                 <div class="trip">
-                                    @switch (tour.id) {
-                                        @case (1) {
-                                            <img src="/images/guide-trip-icon.svg" alt="guide" class="tour-icon">
-                                        }
-                                        @case (2) {
-                                            <img src="/images/safety-icon.svg" alt="safety" class="tour-icon">
-                                        }
-                                        @case (3) {
-                                            <img src="/images/loyality-icon.svg" alt="loyality" class="tour-icon">
-                                        }
-                                    }
+                                    <img [src]="'/images/' + tour.image + '.svg'">
                                 </div>
                                 <div class="tour__info">
                                     <h4 class="tour-title">{{ tour.title }}</h4>
