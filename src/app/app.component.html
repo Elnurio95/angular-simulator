@@ -29,7 +29,7 @@
             <input type="text" id="live-input" class="tasks fs-16" [(ngModel)]="input" placeholder="Введи значение">
             <div class="live-input-value tasks fs-16">{{ input }}</div>
             <div class="date-wrapper tasks">
-                {{today | date:'dd.MM.yyyy HH:mm'}}
+                {{ today | date:'dd.MM.yyyy HH:mm' }}
             </div>
             @if(count) {         
                 <div class="click-btn tasks">
