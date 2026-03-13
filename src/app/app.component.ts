@@ -18,8 +18,17 @@ export class AppComponent {
   tourLocation: string = ''; 
   tourDate: string = ''; 
   tourParticipant: string = '';
-  
   today: Date = new Date(); 
+  input: string = ''; 
+
+  tasks: string = 'Задачи'; 
+  
+  animationIndex: number | null = null; 
+  counter: number = 0; 
+
+  isLoading: boolean = true; 
+  count: boolean = false; 
+  isDateActive: boolean = false;
 
   constructor() {
     this.setLastVisit();
@@ -34,26 +43,8 @@ export class AppComponent {
     }, 2000)
   }
 
-  isLoading: boolean = true; 
-  input: string = ''; 
-
-  tasks: string = 'Задачи'; 
-  count: boolean = false; 
-  counter: number = 0; 
-  isDateActive: boolean = false;
-
   get isFormInvalid(): boolean {
     return !this.tourLocation || !this.tourDate || !this.tourParticipant;
-  }
-
-  animationIndex: number | null = null; 
-
-  onMouseOver(index: number): void {
-    this.animationIndex = index; 
-  }
-
-  onMouseLeave(): void {
-    this.animationIndex = null; 
   }
 
   isColor(color: Color): boolean {

@@ -161,11 +161,7 @@
                 <div class="tour__programs">
                     @for (tour of tours; track tour.id; let i = $index) {
                         <div class="program">
-                            <div class="tour__content flex" 
-                                (mouseover)="onMouseOver(i)" 
-                                (mouseleave)="onMouseLeave()"
-                                [class.animation]="animationIndex === i"
-                            >
+                            <div class="tour__content flex">
                                 <div class="trip">
                                     <img [src]="'/images/' + tour.image + '.svg'">
                                 </div>
@@ -177,7 +173,7 @@
                         </div>
                     }
                 </div>
-                <button class="primary-btn tour-price-btn fw-600 fs-16">Стоимость программ</button>
+                <button  id="tour-price-btn" class="primary-btn fw-600 fs-16">Стоимость программ</button>
             </div>
             <div class="program__photos">
                 <div class="photos__tours-first flex">
