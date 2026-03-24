@@ -19,11 +19,9 @@ export class AppComponent {
   tourDate: string = ''; 
   tourParticipant: string = '';
   today: Date = new Date(); 
-  input: string = ''; 
-
-  tasks: string = 'Задачи'; 
+  enteredWords: string = ''; 
+  task: string = ''; 
   
-  animationIndex: number | null = null; 
   counter: number = 0; 
 
   isLoading: boolean = true; 
@@ -33,6 +31,7 @@ export class AppComponent {
   constructor() {
     this.setLastVisit();
     this.setQuantity(); 
+    this.toggleTasks(); 
 
     setInterval(() => {
       this.today = new Date();
@@ -41,6 +40,10 @@ export class AppComponent {
     setInterval(() => {
       this.isLoading = false; 
     }, 2000)
+  }
+
+  toggleTasks(): void {
+    this.task = this.task === 'date' ? 'counter' : 'date'; 
   }
 
   get isFormInvalid(): boolean {

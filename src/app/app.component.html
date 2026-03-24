@@ -23,17 +23,13 @@
                     Консультация
                 </button>
             </nav>
-            <button id="tasks-wrapper" class="fs-16 tasks" (click)="count = !count">
-                {{ tasks }}
-            </button>
-            <input type="text" id="live-input" class="tasks fs-16" [(ngModel)]="input" placeholder="Введи значение">
-            <div class="live-input-value tasks fs-16">{{ input }}</div>
-            <div class="date-wrapper tasks">
-                {{ today | date:'dd.MM.yyyy HH:mm' }}
-            </div>
-            @if(count) {         
-                <div class="click-btn tasks">
-                    <button id="click-plus" class="click fs-24" (click)="counter = counter + 1">+</button>
+            <div class="header-tasks">
+                @if ( task === 'date') {
+                    <span>{{ today | date:'dd.MM.yyyy HH:mm:ss' }}</span>
+                }
+                @if ( task === 'counter') {         
+                    <div class="click-btn tasks">
+                        <button id="click-plus" class="click fs-24" (click)="counter = counter + 1">+</button>
                     <p class="count">{{ counter }}</p>
                     <button 
                         id="click-minus" 
@@ -42,7 +38,11 @@
                         [disabled]="counter === 0"
                     >-</button>
                 </div>
-            }
+                }
+            <button id="tasks-wrapper" class="fs-16 tasks" (click)="toggleTasks()">
+                {{ task === 'date' ? 'counter' : 'date' }}
+            </button>
+            </div>
         </div>
         <div class="header__form">
             <div class="header__slogan fw-400">
@@ -76,7 +76,7 @@
                     </div>
                     <div class="choice">
                         <div class="choose__subject">
-                            @if(!tourDate) {
+                            @if (!tourDate) {
                                 <span class="date-inscription" [class.removeLettering]="isDateActive">
                                     Дата похода
                                 </span>
@@ -116,6 +116,10 @@
                     </div>
                 </form>
                 <button id="search-btn" [disabled]="isFormInvalid" class="fw-700 fs-16">Найти программу</button>
+            </div>
+            <div class="input-words">
+                <input type="text" id="live-input" class="tasks fs-16" [(ngModel)]="enteredWords" placeholder="Живой инпут">
+                <div class="live-input-value tasks fs-16">{{ enteredWords }}</div>
             </div>
         </div>
     </div>

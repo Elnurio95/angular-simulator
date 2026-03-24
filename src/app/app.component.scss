@@ -318,16 +318,21 @@
 }
 
 #live-input {
-  max-width: 100%;
-  top: 100px;
-  right: 200px;
+  width: 454px;
+  height: 52px;
+  left: 0px;
+  border: 2px solid var(--main-color);
 }
 
 .live-input-value {
   max-width: 100%;
-  top: 150px;
-  height: 16px;
-  right: 200px;
+  height: 52px;
+  left: 50%;
+  border: none;
+}
+
+.input-words {
+  margin-top: 15px;
 }
 
 .loading-img {
@@ -350,4 +355,8 @@
   100% {
     transform: rotate(360deg);
   }
+}
+
+.input-words {
+  position: relative;
 }
