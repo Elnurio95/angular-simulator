@@ -3,7 +3,7 @@ import { Color } from '../enums/Color';
 import { ITour } from '../Interfaces/ITour';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { widgetType } from '../Types/types';
+import { widgetType } from '../Types/WidgetType';
 
 @Component({
   selector: 'app-root',
