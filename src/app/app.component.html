@@ -24,10 +24,10 @@
                 </button>
             </nav>
             <div class="header-tasks">
-                @if ( task === 'date') {
+                @if (widget === 'date') {
                     <span>{{ today | date:'dd.MM.yyyy HH:mm:ss' }}</span>
                 }
-                @if ( task === 'counter') {         
+                @if (widget === 'counter') {         
                     <div class="click-btn tasks">
                         <button id="click-plus" class="click fs-24" (click)="counter = counter + 1">+</button>
                     <p class="count">{{ counter }}</p>
@@ -39,8 +39,8 @@
                     >-</button>
                 </div>
                 }
-            <button id="tasks-wrapper" class="fs-16 tasks" (click)="toggleTasks()">
-                {{ task === 'date' ? 'counter' : 'date' }}
+            <button id="tasks-wrapper" class="fs-16 tasks" (click)="toggleWidget(widget)">
+                {{ widget === 'date' ? 'counter' : 'date' }}
             </button>
             </div>
         </div>
@@ -118,8 +118,8 @@
                 <button id="search-btn" [disabled]="isFormInvalid" class="fw-700 fs-16">Найти программу</button>
             </div>
             <div class="input-words">
-                <input type="text" id="live-input" class="tasks fs-16" [(ngModel)]="enteredWords" placeholder="Живой инпут">
-                <div class="live-input-value tasks fs-16">{{ enteredWords }}</div>
+                <input type="text" id="live-input" class="tasks fs-16" [(ngModel)]="liveInputValue" placeholder="Живой инпут">
+                <div class="live-input-value tasks fs-16">{{ liveInputValue }}</div>
             </div>
         </div>
     </div>

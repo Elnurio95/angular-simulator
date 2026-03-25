@@ -3,6 +3,7 @@ import { Color } from '../enums/Color';
 import { ITour } from '../Interfaces/ITour';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { widgetType } from '../Types/types';
 
 @Component({
   selector: 'app-root',
@@ -19,8 +20,10 @@ export class AppComponent {
   tourDate: string = ''; 
   tourParticipant: string = '';
   today: Date = new Date(); 
-  enteredWords: string = ''; 
-  task: string = ''; 
+  liveInputValue: string = ''; 
+
+  widget: widgetType = 'date'; 
+  
   
   counter: number = 0; 
 
@@ -31,7 +34,7 @@ export class AppComponent {
   constructor() {
     this.setLastVisit();
     this.setQuantity(); 
-    this.toggleTasks(); 
+    this.toggleWidget(this.widget);  
 
     setInterval(() => {
       this.today = new Date();
@@ -42,8 +45,8 @@ export class AppComponent {
     }, 2000)
   }
 
-  toggleTasks(): void {
-    this.task = this.task === 'date' ? 'counter' : 'date'; 
+  toggleWidget(widget: widgetType): void {
+    this.widget = this.widget === 'date' ? 'counter' : 'date'; 
   }
 
   get isFormInvalid(): boolean {
