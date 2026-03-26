@@ -3,7 +3,7 @@ import { Color } from '../enums/Color';
 import { ITour } from '../Interfaces/ITour';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { widgetType } from '../Types/WidgetType';
+import { WidgetType } from '../Types/WidgetType';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +22,7 @@ export class AppComponent {
   today: Date = new Date(); 
   liveInputValue: string = ''; 
 
-  widget: widgetType = 'date'; 
+  widget: WidgetType = 'date'; 
   
   
   counter: number = 0; 
@@ -45,8 +45,8 @@ export class AppComponent {
     }, 2000)
   }
 
-  toggleWidget(widget: widgetType): void {
-    this.widget = this.widget === 'date' ? 'counter' : 'date'; 
+  toggleWidget(widget: WidgetType): void {
+    this.widget = widget; 
   }
 
   get isFormInvalid(): boolean {

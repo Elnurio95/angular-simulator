@@ -39,8 +39,8 @@
                     >-</button>
                 </div>
                 }
-            <button id="tasks-wrapper" class="fs-16 tasks" (click)="toggleWidget(widget)">
-                {{ widget === 'date' ? 'counter' : 'date' }}
+            <button id="tasks-wrapper" class="fs-16 tasks" (click)="toggleWidget(widget === 'date' ? 'counter' : 'date')">
+                {{ widget }}
             </button>
             </div>
         </div>
