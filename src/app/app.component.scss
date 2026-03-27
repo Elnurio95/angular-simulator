@@ -23,13 +23,8 @@
   }
 }
 
-#consult__btn {
+#consult-btn {
   padding: 12px 24px;
-  color: var(--main-color);
-  background-color: var(--btn-background);
-  box-shadow: none;
-  border: none;
-  border-radius: 4px;
 }
 
 .company__logo {
@@ -104,6 +99,7 @@
 }
 
 .choose__date-input {
+  width: 100%;
   appearance: none;
   -webkit-appearance: none;
   background: transparent;
@@ -126,11 +122,241 @@
   align-items: center;
 }
 
-#search__btn {
+#search-btn {
   width: 213px;
   height: 52px;
   border: none;
   border-radius: 4px;
   color: var(--btn-background);
   line-height: 20px;
+  cursor: pointer;
+
+  &:disabled {
+    background-color: #b5b5b5;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+.about-us {
+  margin-top: 100px;
+  background-color: var(--prime-background-color);
+  padding-bottom: 100px;
+}
+
+.wrapper {
+  display: flex;
+  gap: 120px;
+  height: 526px;
+}
+
+.wrapper-content {
+  width: 480px;
+}
+
+.wrapper-content {
+  position: relative;
+  z-index: 1;
+}
+
+.forest-mountain-photo {
+  position: absolute;
+  z-index: 10;
+  top: 126px;
+  left: 130px;
+}
+
+.about-trip {
+  color: var(--secondary-color);
+  line-height: 20px;
+  padding-bottom: 8px;
+}
+
+.trip-title {
+  line-height: 120%;
+  padding-bottom: 40px;
+}
+
+.history {
+  line-height: 150%;
+  padding-bottom: 40px;
+}
+
+#tour-program {
+  width: 200px;
+  padding: 16px 36px;
+  line-height: 20px;
+  letter-spacing: 1.2%;
+}
+
+.best__programs {
+  background-color: var(--secondary-background-color);
+  padding: 80px 0px 100px 0px;
+}
+
+.program__info {
+  max-width: 580px;
+  max-height: 591px;
+}
+
+.sub-title {
+  line-height: 20px;
+  color: var(--secondary-color);
+  padding-bottom: 8px;
+}
+
+.program__title {
+  line-height: 120%;
+  padding-bottom: 40px;
+}
+
+.prorgam__history {
+  line-height: 150%;
+  padding-bottom: 40px;
+}
+
+.tour__content {
+  gap: 16px;
+  padding-bottom: 40px;
+}
+
+#tour-price-btn {
+  line-height: 20px;
+  letter-spacing: 1.2%;
+  padding: 16px 36px;
+}
+
+.photos__tours-first {
+  gap: 10px;
+  padding-bottom: 10px;
+}
+
+
+.photos__tours-second {
+  gap: 10px;
+  padding-bottom: 10px;
+}
+
+.tour__content {
+  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  
+  &:hover {
+    transform: scale(1.15);
+    background-color: #66A7A8;
+    text-align: center;
+  }
+}
+
+
+
+#tour-location {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: 100%;
+}
+
+.location  {
+  color: var(--main-color);
+}
+
+::placeholder {
+  color: var(--main-color);
+}
+
+#choose-participants {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.choose__date-input {
+  position: relative;
+  width: 100%;
+  outline: none;
+}
+
+.date-inscription {
+  position: absolute;
+}
+
+.removeLettering {
+  display: none;
+}
+
+.date-wrapper {
+  top: 150px;
+}
+
+.click-btn {
+  align-items: center;
+  position: absolute;
+  top: 180px;
+  justify-content: center;
+  display: flex;
+  gap: 20px;
+}
+
+.click {
+  background-color: transparent;
+  color: var(--main-color);
+  cursor: pointer;
+  border: none;
+}
+
+.click-minus:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+#tasks-wrapper {
+  width: 127px;
+  position: absolute;
+  top: 100px;
+  cursor: pointer;
+}
+
+#live-input {
+  width: 454px;
+  height: 52px;
+  left: 0px;
+  border: 2px solid var(--main-color);
+}
+
+.live-input-value {
+  max-width: 100%;
+  height: 52px;
+  left: 50%;
+  border: none;
+}
+
+.input-words {
+  margin-top: 15px;
+}
+
+.loading-img {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white; 
+  z-index: 9999;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+  transform-origin: 50% 50%;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.input-words {
+  position: relative;
 }

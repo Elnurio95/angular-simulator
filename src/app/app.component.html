@@ -1,3 +1,6 @@
+<div class="loading-img" *ngIf="isLoading">
+    <img src="/images/loading-icon.svg" alt="loading" class="spinner">
+</div>
 <header class="header">
     <div class="container">
         <div class="container__wrapper justify-content">
@@ -16,8 +19,30 @@
                 <a href="#" id="nav-link-price">Стоимость</a>
                 <a href="#" id="nav-link-blog">Блог</a>
                 <a href="#" id="nav-link-contacts">Контакты</a>
-                <button id="consult__btn" class="fs-16 fw-600">Консультация</button>
+                <button id="consult-btn" class="primary-btn fs-16 fw-600">
+                    Консультация
+                </button>
             </nav>
+            <div class="header-tasks">
+                @if (widget === 'date') {
+                    <span>{{ today | date:'dd.MM.yyyy HH:mm:ss' }}</span>
+                }
+                @if (widget === 'counter') {         
+                    <div class="click-btn tasks">
+                        <button id="click-plus" class="click fs-24" (click)="counter = counter + 1">+</button>
+                    <p class="count">{{ counter }}</p>
+                    <button 
+                        id="click-minus" 
+                        class="click fs-24" 
+                        (click)="counter > 0 && (counter = counter - 1)" 
+                        [disabled]="counter === 0"
+                    >-</button>
+                </div>
+                }
+            <button id="tasks-wrapper" class="fs-16 tasks" (click)="toggleWidget(widget === 'date' ? 'counter' : 'date')">
+                {{ widget }}
+            </button>
+            </div>
         </div>
         <div class="header__form">
             <div class="header__slogan fw-400">
@@ -30,9 +55,16 @@
                 <form action="" class="form gap">
                     <div class="choice">
                         <div class="choose__subject">
-                            <label for="location" class="fs-16 fw-700">Локация для тура</label>
-                            <select name="location" id="location">
-                                <option value=""></option>
+                            <input 
+                                type="text" 
+                                placeholder="Локация для тура"
+                                id="tour-location" 
+                                class="fs-16 fw-700"
+                                [(ngModel)]="tourLocation" 
+                                name="tourLocation"
+                            >
+                            <select name="location" id="location" [(ngModel)]="tourLocation">
+                                <option value="" disabled selected>выберите из списка</option>
                                 <option value="Baku">Баку</option>
                                 <option value="Batumi">Батуми</option>
                                 <option value="Derbent">Дербент</option>
@@ -40,23 +72,39 @@
                                 <option value="Altay">Алтай</option>
                             </select>
                         </div>
-                        <option value="" class="fs-14 fw-400" disabled selected>выберите из списка</option>
+                        <option value="" class="fs-14 fw-400" disabled selected>из списка</option>
                     </div>
                     <div class="choice">
                         <div class="choose__subject">
-                            <label for="date" class="fs-16 fw-700">Дата похода</label>
-
-                            <input type="date" id="date" name="date" class="choose__date-input">
-
-                            <span class="choose__date-icon"></span>
+                            @if (!tourDate) {
+                                <span class="date-inscription" [class.removeLettering]="isDateActive">
+                                    Дата похода
+                                </span>
+                                <input 
+                                    type="date" 
+                                    id="date" 
+                                    name="date" 
+                                    class="choose__date-input"
+                                    (focus)="isDateActive = true" 
+                                    [(ngModel)]="tourDate"
+                                    >
+                                <span class="choose__date-icon"></span>
+                            }
                         </div>
-
                         <option value="" class="fs-14 fw-400" disabled selected>укажите дату</option>
                     </div>
                     <div class="choice">
                         <div class="choose__subject">
-                            <label for="participants" class="fs-16 fw-700">Участники</label>
-                            <select name="participants" id="participants">
+                            <input 
+                                type="text" 
+                                placeholder="Участники" 
+                                class="fs-16 fw-700" 
+                                id="choose-participants"
+                                [(ngModel)]="tourParticipant" 
+                                name="participant"
+                            >
+                            <select name="participants" id="participants" [(ngModel)]="tourParticipant">
+                                <option value="name"></option>
                                 <option value="name">Илья</option>
                                 <option value="name">Эльнур</option>
                                 <option value="name">Сергей</option>
@@ -67,11 +115,80 @@
                         <option value="" class="fs-14 fw-400" disabled selected>выберите из списка</option>
                     </div>
                 </form>
-                <button id="search-btn" class="fw-700 fs-16">Найти программу</button>
+                <button id="search-btn" [disabled]="isFormInvalid" class="fw-700 fs-16">Найти программу</button>
+            </div>
+            <div class="input-words">
+                <input type="text" id="live-input" class="tasks fs-16" [(ngModel)]="liveInputValue" placeholder="Живой инпут">
+                <div class="live-input-value tasks fs-16">{{ liveInputValue }}</div>
             </div>
         </div>
     </div>
 </header>
 <section class="section about-us">
-
+    <div class="container">
+        <div class="wrapper flex">
+            <div class="about-us-wrapper">
+                <div class="wrapper-content">
+                    <img src="/images/snowy-mountains.png" alt="snowy-mountains" class="snowy-mountain-photo">
+                    <img src="/images/forest.png" alt="forest" class="forest-mountain-photo">
+                </div>
+            </div>
+            <div class="wrapper-history">
+                <span class="about-trip fs-24">о нашем походе</span>
+                <p class="trip-title fs-32 fw-800">Исследуйте все горные массивы мира вместе с нами</p>
+                <p class="history fs-18">
+                    Его корни уходят в один фрагмент классической латыни 45 года
+                    н.э., то есть более двух тысячелетий
+                    назад. Ричард МакКлинток, профессор латыни из колледжа
+                    Hampden-Sydney, штат Вирджиния, взял одно из
+                    самых странных слов в Lorem Ipsum, "consectetur"и занялся
+                    его поисками в классической латинской
+                    литературе.
+                </p>
+                <button id="tour-program" class="primary-btn fs-16">Программа</button>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="best__programs">
+    <div class="container">
+        <div class="wrapper">
+            <div class="program__info">
+                <p class="sub-title fs-24">наше предложение</p>
+                <p class="program__title fs-32 fw-800">Лучшие программы для тебя</p>
+                <p class="prorgam__history fs-18 fw-400">
+                    Его корни уходят в один фрагмент классической латыни 45 года
+                    н.э., то есть более двух тысячелетий
+                    назад. Ричард
+                    МакКлинток, профессор латыни из колледжа.
+                </p>
+                <div class="tour__programs">
+                    @for (tour of tours; track tour.id; let i = $index) {
+                        <div class="program">
+                            <div class="tour__content flex">
+                                <div class="trip">
+                                    <img [src]="'/images/' + tour.image + '.svg'">
+                                </div>
+                                <div class="tour__info">
+                                    <h4 class="tour-title">{{ tour.title }}</h4>
+                                    <p>{{ tour.description }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <button  id="tour-price-btn" class="primary-btn fw-600 fs-16">Стоимость программ</button>
+            </div>
+            <div class="program__photos">
+                <div class="photos__tours-first flex">
+                    <img src="/images/oasis.png" alt="oasis">
+                    <img src="/images/hiking-mountain.png" alt="hiking-mountain">
+                </div>
+                <div class="photos__tours-second flex">
+                    <img src="/images/snowmobile.png" alt="snowmobile">
+                    <img src="/images/green-mountain.png" alt="green-mountain">
+                </div>
+            </div>
+        </div>
+    </div>
 </section>

@@ -11,11 +11,30 @@
   --blog-color: #18121e;
   --secondary-color: #f2be22;
   --btn-background: #1a3e3e;
+  --prime-background-color: #FFFFFF;
+  --secondary-background-color: #F3F5F4; 
+}
+
+.header {
+  position: relative;
 }
 
 .container {
   width: 1180px;
   margin: 0 auto;
+  position: relative;
+}
+
+input {
+  color: var(--main-color);
+}
+
+.primary-btn {
+  color: var(--main-color);
+  background-color: var(--btn-background);
+  box-shadow: none;
+  border: none;
+  border-radius: 4px;
 }
 
 .gap {
@@ -38,6 +57,18 @@
   font-size: 18px;
 }
 
+.fs-24 {
+  font-size: 24px;
+}
+
+.fs-32 {
+  font-size: 32px;
+}
+
+.fw-800 {
+  font-weight: 800;
+}
+
 .fw-700 {
   font-weight: 700;
 }
@@ -48,4 +79,19 @@
 
 .fw-400 {
   font-weight: 400;
+}
+
+.flex {
+  display: flex;
+}
+
+.tasks {
+  width: 113px;
+  position: absolute;
+  right: 10px;
+  color: var(--main-color);
+  border: 2px solid var(--btn-background);
+  padding: 5px;
+  background-color: transparent;
+  outline: none;
 }
