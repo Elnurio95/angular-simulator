@@ -360,3 +360,165 @@
 .input-words {
   position: relative;
 }
+
+.popular__directions {
+  padding: 80px 95px;
+}
+
+.popular__places {
+  display: flex;
+  gap: 20px;
+  margin: 50px 0px;
+}
+
+.place__content {
+  position: relative;
+}
+
+.content {
+  position: absolute;
+  display: flex;
+  width: 316px;
+  bottom: 2px;
+  padding: 20px 32px 23px 32px;
+  gap: 35px;
+  color: var(--main-color);
+  backdrop-filter: blur(6px); 
+  border-bottom-left-radius: 32px;
+  border-bottom-right-radius: 32px;
+}
+
+.tour-subtitle {
+  line-height: 18px;
+}
+
+.place__price {
+  display: flex;
+  align-items: center;
+  line-height: 24px;
+  border-radius: 4px;
+  padding: 8px 16px;
+  background: #FFFFFF4D;
+}
+
+.rate-btn {
+  padding: 16px 36px;
+  display: flex;
+  margin: 0 auto;
+}
+
+.rate__content {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  width: 65px;
+  height: 32px;
+  display: flex;
+  position: absolute;
+  top: 50px;
+  right: 0px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  background-color: #fdfdfd66;
+  backdrop-filter: blur(4px)
+}
+
+.rate__content-inner {
+  padding-left: 8px;
+}
+
+.blog {
+  background-color: var(--secondary-background-color);
+  padding: 85px 0px 95px 0px;
+}
+
+.travel__blog {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  margin-bottom: 50px;
+}
+
+.blog__content {
+  display: flex;
+  width: 548px;
+  height: 312px;
+  gap: 24px;
+  padding: 16px 16px;
+}
+
+.blog__date {
+  display: flex;
+  justify-content: space-between;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.blog-link {
+  text-decoration: none;
+}
+
+.messages-wrapper {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.message {
+  min-width: 300px;
+  padding: 16px 20px;
+  border-radius: 8px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  animation: slideIn 0.4s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.Success {
+  background: #28a745;
+}
+
+.Error {
+  background: #dc3545;
+}
+
+.Info {
+  background: #17a2b8;
+}
+
+.Warn {
+  background: #ffc107;
+  color: black;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(120%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
