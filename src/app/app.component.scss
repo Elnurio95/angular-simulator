@@ -471,6 +471,7 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+  background-color: #797877;
 }
 
 .message {
@@ -495,19 +496,19 @@
 }
 
 .Success {
-  background: #28a745;
+  background: #797877;
 }
 
 .Error {
-  background: #dc3545;
+  background: #797877;
 }
 
 .Info {
-  background: #17a2b8;
+  background: #797877;
 }
 
 .Warn {
-  background: #ffc107;
+  background: #797877;
   color: black;
 }
 
