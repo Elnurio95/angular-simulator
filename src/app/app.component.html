@@ -221,7 +221,7 @@
                     </div>
                 }
             </div>
-            <button class="primary-btn rate-btn fs-16 fw-600 lh-20" (click)="showSuccess()">Рейтинг направлений</button>
+            <button id="show-rate-btn" class="primary-btn fs-16 fw-600 lh-20" (click)="showSuccess()">Рейтинг направлений</button>
         </div>
     </div>
 </section>
@@ -266,7 +266,7 @@
 </div>
 
 <ng-template #messageTemplate let-message let-index="index">
-  <div class="message" [class]="message.type">
+  <div class="message" [ngClass]="message.type">
     <span>{{ message.message }}</span>
 
     <button class="close-btn" (click)="closeMessage(index)">

@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { IMessages } from './Interfaces/IMessages';
+import { IMessages } from './interfaces/IMessages';
 
 @Injectable() 
 export class ManageMessageService {
-  public messages: IMessages[] = []; 
+  messages: IMessages[] = []; 
 
-  public addMessage(message: IMessages): void {
+  addMessage(message: IMessages): void {
     this.messages.push(message); 
 
     setTimeout(() => {
@@ -17,7 +17,7 @@ export class ManageMessageService {
     }, 5000); 
   }
 
-  public closeMessage(index: number): void {
+  closeMessage(index: number): void {
     this.messages.splice(index, 1);  
   }
 }

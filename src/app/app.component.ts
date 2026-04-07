@@ -1,12 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { Color } from '../enums/Color';
-import { ITour } from '../Interfaces/ITour';
+import { ITour } from '../interfaces/ITour';
 import { FormsModule } from '@angular/forms';
 import { CommonModule, NgTemplateOutlet } from '@angular/common';
 import { WidgetType } from '../Types/WidgetType';
 import { TourPlacesService } from './tour-places.service';
-import { IPlaces } from '../Interfaces/IPlaces';
-import { IBlog } from '../Interfaces/IBlog';
+import { IPlaces } from '../interfaces/IPlaces';
+import { IBlog } from '../interfaces/IBlog';
 import { ManageMessageService } from '../manage-message.service';
 import { Messages } from '../enums/Messages';
 import { LocalStorageService } from '../local-storage.service';
@@ -20,9 +20,10 @@ import { LocalStorageService } from '../local-storage.service';
   providers: [ManageMessageService, TourPlacesService]
 })
 export class AppComponent {
-  public readonly tourPlacesService = inject(TourPlacesService); 
-  public readonly manageMessage = inject(ManageMessageService); 
-  public readonly storageService = inject(LocalStorageService);
+
+  tourPlacesService: TourPlacesService = inject(TourPlacesService); 
+  manageMessage: ManageMessageService = inject(ManageMessageService); 
+  storageService: LocalStorageService = inject(LocalStorageService);
 
   companyName: string = 'румтибет';
 
@@ -52,7 +53,7 @@ export class AppComponent {
     }, 2000)
   }
 
-  public closeMessage(index: number): void {
+  closeMessage(index: number): void {
     this.manageMessage.closeMessage(index);  
   }
 
@@ -97,17 +98,17 @@ export class AppComponent {
     return mainArr.includes(color);
   }
 
-public setLastVisit(): void {
-  const currentDate = new Date().toISOString();
-  this.storageService.setItem('last-date', currentDate);
-}
+  setLastVisit(): void {
+    const currentDate = new Date().toISOString();
+    this.storageService.setItem('last-date', currentDate);
+  }
 
-public setQuantity(): void {
-  const key = 'pageVisits';
-  const visits = (this.storageService.getItem<number>(key) || 0) + 1;
+  setQuantity(): void {
+    const USERS_KEY: string = 'users-key';
+    const visits = (this.storageService.getItem<number>(USERS_KEY) || 0) + 1;
 
-  this.storageService.setItem(key, visits);
-}
+    this.storageService.setItem(USERS_KEY, visits);
+  }
 
   tours: ITour[] = [  
     {
@@ -141,7 +142,7 @@ public setQuantity(): void {
       tourSubtitle: 'романтическое приключение', 
       price: 480, 
       rates: {
-        rateIcon: 'star', 
+        rateIcon: 'star-icon', 
         rate: 4.9
       }
     }, 
@@ -172,7 +173,7 @@ public setQuantity(): void {
   blogs: IBlog[] = [
     {
       id: 1, 
-      blogImg: 'italy-blog', 
+      blogImg: 'italian-city', 
       blogName: 'Красивая Италия, какая она в реальности?', 
       blogDesc: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.', 
       date: '01/04/2023',
@@ -196,11 +197,12 @@ public setQuantity(): void {
     },
     {
       id: 4, 
-      blogImg: 'india-summer', 
+      blogImg: 'indian-mosque', 
       blogName: 'Индия ... летим?', 
       blogDesc: 'Для современного мира базовый.', 
       date: '01/04/2023',
       link: 'читать статью'
     }
   ]
+
 }
