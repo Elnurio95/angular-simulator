@@ -1,23 +1,26 @@
 import { Injectable } from '@angular/core';
 import { IMessages } from './interfaces/IMessages';
 
-@Injectable() 
+@Injectable()
 export class ManageMessageService {
-  messages: IMessages[] = []; 
+  messages: IMessages[] = [];
 
   addMessage(message: IMessages): void {
-    this.messages.push(message); 
+    const messageWithId: IMessages = {
+      ...message,
+      id: message.id || Date.now(),
+    };
+
+    this.messages = [...this.messages, messageWithId];
 
     setTimeout(() => {
-      const index = this.messages.indexOf(message); 
-
-      if (index > -1) {
-        this.closeMessage(index); 
-      }
-    }, 5000); 
+      this.closeMessage(messageWithId.id);
+    }, 5000);
   }
 
-  closeMessage(index: number): void {
-    this.messages.splice(index, 1);  
+  closeMessage(id: number): void {
+    this.messages = this.messages.filter(
+      (message) => message.id !== id
+    );
   }
 }

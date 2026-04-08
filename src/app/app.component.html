@@ -237,8 +237,8 @@
                             <img [src]=" '/images/' + blog.blogImg + '.png' " alt="">
                         </div>
                         <div class="description">
-                            <p class="fs-24 fw-700 lh-32">{{ blog.blogName }}</p>
-                            <span class="fs-14 fw-400 lh-20">{{ blog.blogDesc }}</span>
+                            <p class="fs-24 fw-700 lh-32">{{ blog.mainTitle }}</p>
+                            <span class="fs-14 fw-400 lh-20">{{ blog.desc }}</span>
                             <div class="blog__date">
                                 <span class="fs-14 lh-20" style="color: #F2BE22;">{{ blog.date }}</span>
                                 <a class="blog-link" href="#">
@@ -250,7 +250,7 @@
                 </div>
             }
         </div>
-        <button class="primary-btn rate-btn fs-16 fw-600 lh-20" (click)="showError()">
+        <button id = "show-rate-btn" class="primary-btn fs-16 fw-600 lh-20" (click)="showError()">
             Другие материалы
         </button>
     </div>

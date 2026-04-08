@@ -4,7 +4,6 @@ import { ITour } from '../interfaces/ITour';
 import { FormsModule } from '@angular/forms';
 import { CommonModule, NgTemplateOutlet } from '@angular/common';
 import { WidgetType } from '../Types/WidgetType';
-import { TourPlacesService } from './tour-places.service';
 import { IPlaces } from '../interfaces/IPlaces';
 import { IBlog } from '../interfaces/IBlog';
 import { ManageMessageService } from '../manage-message.service';
@@ -17,11 +16,10 @@ import { LocalStorageService } from '../local-storage.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   standalone: true,
-  providers: [ManageMessageService, TourPlacesService]
+  providers: [ManageMessageService, LocalStorageService]
 })
 export class AppComponent {
-
-  tourPlacesService: TourPlacesService = inject(TourPlacesService); 
+ 
   manageMessage: ManageMessageService = inject(ManageMessageService); 
   storageService: LocalStorageService = inject(LocalStorageService);
 
@@ -59,6 +57,7 @@ export class AppComponent {
 
   showSuccess(): void {
     this.manageMessage.addMessage({
+      id: 1,
       message: 'Направления получены', 
       type: Messages.Success
     })
@@ -66,6 +65,7 @@ export class AppComponent {
 
   showError(): void {
     this.manageMessage.addMessage({
+      id: 2,
       message: 'Материалы недоступны', 
       type: Messages.Error
     })
@@ -73,6 +73,7 @@ export class AppComponent {
 
   showInfo(): void {
     this.manageMessage.addMessage({
+      id: 3, 
       message: 'Стоимость отправлена на почту', 
       type: Messages.Info
     })
@@ -80,6 +81,7 @@ export class AppComponent {
 
   showWarn(): void {
     this.manageMessage.addMessage({
+      id: 4, 
       message: 'Направления получены', 
       type: Messages.Warn
     })
@@ -174,32 +176,32 @@ export class AppComponent {
     {
       id: 1, 
       blogImg: 'italian-city', 
-      blogName: 'Красивая Италия, какая она в реальности?', 
-      blogDesc: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.', 
+      mainTitle: 'Красивая Италия, какая она в реальности?', 
+      desc: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.', 
       date: '01/04/2023',
       link: 'читать статью'
     },
     {
       id: 2, 
       blogImg: 'airplane', 
-      blogName: 'Долой сомнения! Весь мир открыт для вас!', 
-      blogDesc: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации ... независимые способы реализации соответствующих...', 
+      mainTitle: 'Долой сомнения! Весь мир открыт для вас!', 
+      desc: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации ... независимые способы реализации соответствующих...', 
       date: '01/04/2023',
       link: 'читать статью'
     },
     {
       id: 3, 
       blogImg: 'travel-preparing', 
-      blogName: 'Как подготовиться к путешествию в одиночку?', 
-      blogDesc: 'Для современного мира базовый вектор развития предполагает.', 
+      mainTitle: 'Как подготовиться к путешествию в одиночку?', 
+      desc: 'Для современного мира базовый вектор развития предполагает.', 
       date: '01/04/2023',
       link: 'читать статью'
     },
     {
       id: 4, 
       blogImg: 'indian-mosque', 
-      blogName: 'Индия ... летим?', 
-      blogDesc: 'Для современного мира базовый.', 
+      mainTitle: 'Индия ... летим?', 
+      desc: 'Для современного мира базовый.', 
       date: '01/04/2023',
       link: 'читать статью'
     }

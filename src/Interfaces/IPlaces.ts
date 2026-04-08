@@ -5,7 +5,7 @@ export interface  IPlaces {
     tourSubtitle: string; 
     price: number; 
     rates: {
-        rateIcon: string,
+        rateIcon: string;
         rate: number; 
     }
 }
