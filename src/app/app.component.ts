@@ -21,27 +21,21 @@ import { LocalStorageService } from '../local-storage.service';
 export class AppComponent {
  
   manageMessage: ManageMessageService = inject(ManageMessageService); 
-  storageService: LocalStorageService = inject(LocalStorageService);
+  private storageService: LocalStorageService = inject(LocalStorageService);
 
   companyName: string = 'румтибет';
-
   tourLocation: string = ''; 
   tourDate: string = ''; 
   tourParticipant: string = '';
   today: Date = new Date(); 
   liveInputValue: string = ''; 
-
   widget: WidgetType = 'date'; 
-  
-  
   counter: number = 0; 
-
   isLoading: boolean = true; 
   count: boolean = false; 
   isDateActive: boolean = false;
 
   constructor() {
-
     setInterval(() => {
       this.today = new Date();
     }, 1000);
@@ -59,7 +53,7 @@ export class AppComponent {
     this.manageMessage.addMessage({
       id: 1,
       message: 'Направления получены', 
-      type: Messages.Success
+      type: Messages.SUCCESS
     })
   }
 
@@ -67,7 +61,7 @@ export class AppComponent {
     this.manageMessage.addMessage({
       id: 2,
       message: 'Материалы недоступны', 
-      type: Messages.Error
+      type: Messages.ERROR
     })
   }
 
@@ -75,7 +69,7 @@ export class AppComponent {
     this.manageMessage.addMessage({
       id: 3, 
       message: 'Стоимость отправлена на почту', 
-      type: Messages.Info
+      type: Messages.INFO
     })
   }
 
@@ -83,7 +77,7 @@ export class AppComponent {
     this.manageMessage.addMessage({
       id: 4, 
       message: 'Направления получены', 
-      type: Messages.Warn
+      type: Messages.WARN
     })
   }
 
@@ -101,13 +95,13 @@ export class AppComponent {
   }
 
   setLastVisit(): void {
-    const currentDate = new Date().toISOString();
+    const currentDate: string = new Date().toISOString();
     this.storageService.setItem('last-date', currentDate);
   }
 
   setQuantity(): void {
     const USERS_KEY: string = 'users-key';
-    const visits = (this.storageService.getItem<number>(USERS_KEY) || 0) + 1;
+    const visits: number = (this.storageService.getItem<number>(USERS_KEY) || 0) + 1;
 
     this.storageService.setItem(USERS_KEY, visits);
   }

@@ -3,6 +3,7 @@ import { IMessages } from './interfaces/IMessages';
 
 @Injectable()
 export class ManageMessageService {
+
   messages: IMessages[] = [];
 
   addMessage(message: IMessages): void {
@@ -23,4 +24,5 @@ export class ManageMessageService {
       (message) => message.id !== id
     );
   }
+  
 }
