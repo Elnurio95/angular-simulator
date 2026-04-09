@@ -4,10 +4,10 @@ import { ITour } from '../interfaces/ITour';
 import { FormsModule } from '@angular/forms';
 import { CommonModule, NgTemplateOutlet } from '@angular/common';
 import { WidgetType } from '../Types/WidgetType';
-import { IPlaces } from '../interfaces/IPlaces';
+import { IPlace } from '../interfaces/IPlace';
 import { IBlog } from '../interfaces/IBlog';
-import { ManageMessageService } from '../manage-message.service';
-import { Messages } from '../enums/Messages';
+import { MessageService } from '../message.service';
+import { Message } from '../enums/Message';
 import { LocalStorageService } from '../local-storage.service';
 
 @Component({
@@ -16,12 +16,12 @@ import { LocalStorageService } from '../local-storage.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   standalone: true,
-  providers: [ManageMessageService, LocalStorageService]
+  providers: [MessageService, LocalStorageService]
 })
 export class AppComponent {
  
-  manageMessage: ManageMessageService = inject(ManageMessageService); 
-  private storageService: LocalStorageService = inject(LocalStorageService);
+  manageMessage: MessageService = inject(MessageService); 
+  private localStorageService: LocalStorageService = inject(LocalStorageService);
 
   companyName: string = 'румтибет';
   tourLocation: string = ''; 
@@ -49,38 +49,6 @@ export class AppComponent {
     this.manageMessage.closeMessage(index);  
   }
 
-  showSuccess(): void {
-    this.manageMessage.addMessage({
-      id: 1,
-      message: 'Направления получены', 
-      type: Messages.SUCCESS
-    })
-  }
-
-  showError(): void {
-    this.manageMessage.addMessage({
-      id: 2,
-      message: 'Материалы недоступны', 
-      type: Messages.ERROR
-    })
-  }
-
-  showInfo(): void {
-    this.manageMessage.addMessage({
-      id: 3, 
-      message: 'Стоимость отправлена на почту', 
-      type: Messages.INFO
-    })
-  }
-
-  showWarn(): void {
-    this.manageMessage.addMessage({
-      id: 4, 
-      message: 'Направления получены', 
-      type: Messages.WARN
-    })
-  }
-
   toggleWidget(widget: WidgetType): void {
     this.widget = widget; 
   }
@@ -96,14 +64,14 @@ export class AppComponent {
 
   setLastVisit(): void {
     const currentDate: string = new Date().toISOString();
-    this.storageService.setItem('last-date', currentDate);
+    this.localStorageService.setItem('last-date', currentDate);
   }
 
   setQuantity(): void {
     const USERS_KEY: string = 'users-key';
-    const visits: number = (this.storageService.getItem<number>(USERS_KEY) || 0) + 1;
+    const visits: number = (this.localStorageService.getItem<number>(USERS_KEY) || 0) + 1;
 
-    this.storageService.setItem(USERS_KEY, visits);
+    this.localStorageService.setItem(USERS_KEY, visits);
   }
 
   tours: ITour[] = [  
@@ -130,7 +98,7 @@ export class AppComponent {
     },
   ];
 
-  places: IPlaces[] = [
+  places: IPlace[] = [
     {
       id: 1, 
       img: 'lake-mountain', 

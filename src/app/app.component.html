@@ -145,7 +145,7 @@
                     его поисками в классической латинской
                     литературе.
                 </p>
-                <button id="tour-program" class="primary-btn fs-16" (click)="showWarn()">Программа тура</button>
+                <button id="tour-program" class="primary-btn fs-16" (click)="manageMessage.showWarn('Программа тура')">Программа тура</button>
             </div>
         </div>
     </div>
@@ -177,7 +177,7 @@
                         </div>
                     }
                 </div>
-                <button  id="tour-price-btn" class="primary-btn fw-600 fs-16" (click)="showInfo()">Стоимость программ</button>
+                <button  id="tour-price-btn" class="primary-btn fw-600 fs-16" (click)="manageMessage.showInfo('Стоимость отправлена на почту')">Стоимость программ</button>
             </div>
             <div class="program__photos">
                 <div class="photos__tours-first flex">
@@ -221,7 +221,7 @@
                     </div>
                 }
             </div>
-            <button id="show-rate-btn" class="primary-btn fs-16 fw-600 lh-20" (click)="showSuccess()">Рейтинг направлений</button>
+            <button id="show-rate-btn" class="primary-btn fs-16 fw-600 lh-20" (click)="manageMessage.showSuccess('Направления поолучены')">Рейтинг направлений</button>
         </div>
     </div>
 </section>
@@ -234,7 +234,7 @@
                 <div class="blog__desc">
                     <div class="blog__content">
                         <div class="blog__img">
-                            <img [src]=" '/images/' + blog.blogImg + '.png' " alt="">
+                            <img [src]=" '/images/' + blog.blogImg + '.png' ">
                         </div>
                         <div class="description">
                             <p class="fs-24 fw-700 lh-32">{{ blog.mainTitle }}</p>
@@ -250,17 +250,17 @@
                 </div>
             }
         </div>
-        <button id = "show-rate-btn" class="primary-btn fs-16 fw-600 lh-20" (click)="showError()">
+        <button id = "show-rate-btn" class="primary-btn fs-16 fw-600 lh-20" (click)="manageMessage.showError('Материалы недоступны')">
             Другие материалы
         </button>
     </div>
 </section>
 
 <div class="messages-wrapper">
-  @for (message of manageMessage.messages; track $index; let i = $index) {
+  @for (message of manageMessage.messages; track message.id) {
     <ng-container
       [ngTemplateOutlet]="messageTemplate"
-      [ngTemplateOutletContext]="{ $implicit: message, index: i }">
+      [ngTemplateOutletContext]="{ $implicit: message }">
     </ng-container>
   }
 </div>
