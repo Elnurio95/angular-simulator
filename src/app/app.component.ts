@@ -1,41 +1,41 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Color } from '../enums/Color';
-import { ITour } from '../Interfaces/ITour';
+import { ITour } from '../interfaces/ITour';
 import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgTemplateOutlet } from '@angular/common';
 import { WidgetType } from '../Types/WidgetType';
+import { IPlace } from '../interfaces/IPlace';
+import { IBlog } from '../interfaces/IBlog';
+import { MessageService } from '../message.service';
+import { Message } from '../enums/Message';
+import { LocalStorageService } from '../local-storage.service';
 
 @Component({
   selector: 'app-root',
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, NgTemplateOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   standalone: true,
+  providers: [MessageService, LocalStorageService]
 })
 export class AppComponent {
+ 
+  messageService: MessageService = inject(MessageService); 
+  private localStorageService: LocalStorageService = inject(LocalStorageService);
 
   companyName: string = 'румтибет';
-
   tourLocation: string = ''; 
   tourDate: string = ''; 
   tourParticipant: string = '';
   today: Date = new Date(); 
   liveInputValue: string = ''; 
-
   widget: WidgetType = 'date'; 
-  
-  
   counter: number = 0; 
-
   isLoading: boolean = true; 
   count: boolean = false; 
   isDateActive: boolean = false;
 
   constructor() {
-    this.setLastVisit();
-    this.setQuantity(); 
-    this.toggleWidget(this.widget);  
-
     setInterval(() => {
       this.today = new Date();
     }, 1000);
@@ -43,6 +43,10 @@ export class AppComponent {
     setInterval(() => {
       this.isLoading = false; 
     }, 2000)
+  }
+
+  closeMessage(index: number): void {
+    this.messageService.closeMessage(index);  
   }
 
   toggleWidget(widget: WidgetType): void {
@@ -60,13 +64,14 @@ export class AppComponent {
 
   setLastVisit(): void {
     const currentDate: string = new Date().toISOString();
-    localStorage.setItem('last-date', currentDate);
+    this.localStorageService.setItem('last-date', currentDate);
   }
 
   setQuantity(): void {
-    const key: string = 'pageVisits';
-    const visits: number = Number(localStorage.getItem(key) || '0') + 1;
-    localStorage.setItem(key, String(visits));
+    const USERS_KEY: string = 'users-key';
+    const visits: number = (this.localStorageService.getItem<number>(USERS_KEY) || 0) + 1;
+
+    this.localStorageService.setItem(USERS_KEY, visits);
   }
 
   tours: ITour[] = [  
@@ -92,5 +97,76 @@ export class AppComponent {
         'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
     },
   ];
+
+  places: IPlace[] = [
+    {
+      id: 1, 
+      img: 'lake-mountain', 
+      tourName: 'Озеро возле гор', 
+      tourSubtitle: 'романтическое приключение', 
+      price: 480, 
+      rates: {
+        rateIcon: 'star-icon', 
+        rate: 4.9
+      }
+    }, 
+    {
+      id: 2, 
+      img: 'night-in-mountains', 
+      tourName: 'Ночь в горах', 
+      tourSubtitle: 'в компании друзей', 
+      price: 500, 
+      rates: {
+        rateIcon: 'star', 
+        rate: 4.9
+      }
+    }, 
+    {
+      id: 3, 
+      img: 'stretching-in-mountains', 
+      tourName: 'Растяжка в горах', 
+      tourSubtitle: 'для тех, кто забоится о себе', 
+      price: 230, 
+      rates: {
+        rateIcon: 'star', 
+        rate: 4.9
+      }
+    }
+  ]
+
+  blogs: IBlog[] = [
+    {
+      id: 1, 
+      blogImg: 'italian-city', 
+      mainTitle: 'Красивая Италия, какая она в реальности?', 
+      desc: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.', 
+      date: '01/04/2023',
+      link: 'читать статью'
+    },
+    {
+      id: 2, 
+      blogImg: 'airplane', 
+      mainTitle: 'Долой сомнения! Весь мир открыт для вас!', 
+      desc: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации ... независимые способы реализации соответствующих...', 
+      date: '01/04/2023',
+      link: 'читать статью'
+    },
+    {
+      id: 3, 
+      blogImg: 'travel-preparing', 
+      mainTitle: 'Как подготовиться к путешествию в одиночку?', 
+      desc: 'Для современного мира базовый вектор развития предполагает.', 
+      date: '01/04/2023',
+      link: 'читать статью'
+    },
+    {
+      id: 4, 
+      blogImg: 'indian-mosque', 
+      mainTitle: 'Индия ... летим?', 
+      desc: 'Для современного мира базовый.', 
+      date: '01/04/2023',
+      link: 'читать статью'
+    }
+  ]
 
 }

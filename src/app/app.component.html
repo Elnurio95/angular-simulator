@@ -145,7 +145,7 @@
                     его поисками в классической латинской
                     литературе.
                 </p>
-                <button id="tour-program" class="primary-btn fs-16">Программа</button>
+                <button id="tour-program" class="primary-btn fs-16" (click)="messageService.showWarn('Программа тура')">Программа тура</button>
             </div>
         </div>
     </div>
@@ -177,7 +177,7 @@
                         </div>
                     }
                 </div>
-                <button  id="tour-price-btn" class="primary-btn fw-600 fs-16">Стоимость программ</button>
+                <button  id="tour-price-btn" class="primary-btn fw-600 fs-16" (click)="messageService.showInfo('Стоимость отправлена на почту')">Стоимость программ</button>
             </div>
             <div class="program__photos">
                 <div class="photos__tours-first flex">
@@ -192,3 +192,85 @@
         </div>
     </div>
 </section>
+<section class="popular__directions">
+    <div class="travel__directions">
+        <div class="container">
+            <p class="subtitle fs-24 fw-400 lh-20">по версии отдыхающих</p>
+            <h1 class="title">Популярные направления</h1>
+            <div class="popular__places">
+                @for (place of places; track place.id) {
+                    <div class="place__content">
+                        <img [src]="'/images/' + place.img + '.png'" alt="popular-place">
+                        <div class="content">
+                            <div class="text__desc">
+                                <h2 class="fs-24">{{ place.tourName }}</h2>
+                                <p class="tour-subtitle fs-14 fw-400">{{ place.tourSubtitle }}</p>
+                            </div>
+                            <div class="place__price">
+                                <p class="fs-20 fw-700">{{ place.price }} $</p>
+                            </div>
+                        </div>
+                        <div class="rate__content">
+                            <div class="rate__content-inner">
+                                <img [src]="'/images/' + place.rates.rateIcon + '.svg'" alt="place-rate">
+                            </div>
+                            <div class="rate__content-rate">
+                                {{ place.rates.rate }}
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <button id="show-rate-btn" class="primary-btn fs-16 fw-600 lh-20" (click)="messageService.showSuccess('Направления поолучены')">Рейтинг направлений</button>
+        </div>
+    </div>
+</section>
+<section class="blog">
+    <div class="container">
+        <p class="subtitle fs-24 fw-400 lh-20">делимся впечатлениями</p>
+        <h1 class="title">Блог о путешествиях</h1>
+        <div class="travel__blog">
+            @for (blog of blogs; track blog.id) {
+                <div class="blog__desc">
+                    <div class="blog__content">
+                        <div class="blog__img">
+                            <img [src]=" '/images/' + blog.blogImg + '.png' ">
+                        </div>
+                        <div class="description">
+                            <p class="fs-24 fw-700 lh-32">{{ blog.mainTitle }}</p>
+                            <span class="fs-14 fw-400 lh-20">{{ blog.desc }}</span>
+                            <div class="blog__date">
+                                <span class="fs-14 lh-20" style="color: #F2BE22;">{{ blog.date }}</span>
+                                <a class="blog-link" href="#">
+                                    <span class="fs-14 lh-20" style="color: #1A3E3E;">{{ blog.link }}</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <button id="show-rate-btn" class="primary-btn fs-16 fw-600 lh-20" (click)="messageService.showError('Материалы недоступны')">
+            Другие материалы
+        </button>
+    </div>
+</section>
+
+<div class="messages-wrapper">
+  @for (message of messageService.messages; track message.id) {
+    <ng-container
+      [ngTemplateOutlet]="messageTemplate"
+      [ngTemplateOutletContext]="{ $implicit: message }">
+    </ng-container>
+  }
+</div>
+
+<ng-template #messageTemplate let-message let-index="index">
+  <div class="message" [ngClass]="message.type">
+    <span>{{ message.message }}</span>
+
+    <button class="close-btn" (click)="closeMessage(index)">
+      ✕
+    </button>
+  </div>
+</ng-template>
