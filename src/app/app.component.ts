@@ -20,7 +20,7 @@ import { LocalStorageService } from '../local-storage.service';
 })
 export class AppComponent {
  
-  manageMessage: MessageService = inject(MessageService); 
+  messageService: MessageService = inject(MessageService); 
   private localStorageService: LocalStorageService = inject(LocalStorageService);
 
   companyName: string = 'румтибет';
@@ -46,7 +46,7 @@ export class AppComponent {
   }
 
   closeMessage(index: number): void {
-    this.manageMessage.closeMessage(index);  
+    this.messageService.closeMessage(index);  
   }
 
   toggleWidget(widget: WidgetType): void {

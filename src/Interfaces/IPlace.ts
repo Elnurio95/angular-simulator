@@ -1,4 +1,4 @@
-export interface  IPlace {
+export interface IPlace {
     id: number; 
     img: string; 
     tourName: string; 

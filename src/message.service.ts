@@ -14,12 +14,12 @@ export class MessageService {
       id: Date.now(),
     };
 
-    this.messages.push(messageWithId);
+    this.messages = [...this.messages, messageWithId]
   }
 
   closeMessage(id: number): void {
     this.messages = this.messages.filter(
-      (message) => message.id !== id
+      (message: IMessage) => message.id !== id
     );
   }
 

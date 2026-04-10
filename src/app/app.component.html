@@ -145,7 +145,7 @@
                     его поисками в классической латинской
                     литературе.
                 </p>
-                <button id="tour-program" class="primary-btn fs-16" (click)="manageMessage.showWarn('Программа тура')">Программа тура</button>
+                <button id="tour-program" class="primary-btn fs-16" (click)="messageService.showWarn('Программа тура')">Программа тура</button>
             </div>
         </div>
     </div>
@@ -177,7 +177,7 @@
                         </div>
                     }
                 </div>
-                <button  id="tour-price-btn" class="primary-btn fw-600 fs-16" (click)="manageMessage.showInfo('Стоимость отправлена на почту')">Стоимость программ</button>
+                <button  id="tour-price-btn" class="primary-btn fw-600 fs-16" (click)="messageService.showInfo('Стоимость отправлена на почту')">Стоимость программ</button>
             </div>
             <div class="program__photos">
                 <div class="photos__tours-first flex">
@@ -200,7 +200,7 @@
             <div class="popular__places">
                 @for (place of places; track place.id) {
                     <div class="place__content">
-                        <img [src]="'/images/' + place.img + '.png'" alt="">
+                        <img [src]="'/images/' + place.img + '.png'" alt="popular-place">
                         <div class="content">
                             <div class="text__desc">
                                 <h2 class="fs-24">{{ place.tourName }}</h2>
@@ -212,7 +212,7 @@
                         </div>
                         <div class="rate__content">
                             <div class="rate__content-inner">
-                                <img [src]="'/images/' + place.rates.rateIcon + '.svg'" alt="">
+                                <img [src]="'/images/' + place.rates.rateIcon + '.svg'" alt="place-rate">
                             </div>
                             <div class="rate__content-rate">
                                 {{ place.rates.rate }}
@@ -221,7 +221,7 @@
                     </div>
                 }
             </div>
-            <button id="show-rate-btn" class="primary-btn fs-16 fw-600 lh-20" (click)="manageMessage.showSuccess('Направления поолучены')">Рейтинг направлений</button>
+            <button id="show-rate-btn" class="primary-btn fs-16 fw-600 lh-20" (click)="messageService.showSuccess('Направления поолучены')">Рейтинг направлений</button>
         </div>
     </div>
 </section>
@@ -250,14 +250,14 @@
                 </div>
             }
         </div>
-        <button id = "show-rate-btn" class="primary-btn fs-16 fw-600 lh-20" (click)="manageMessage.showError('Материалы недоступны')">
+        <button id="show-rate-btn" class="primary-btn fs-16 fw-600 lh-20" (click)="messageService.showError('Материалы недоступны')">
             Другие материалы
         </button>
     </div>
 </section>
 
 <div class="messages-wrapper">
-  @for (message of manageMessage.messages; track message.id) {
+  @for (message of messageService.messages; track message.id) {
     <ng-container
       [ngTemplateOutlet]="messageTemplate"
       [ngTemplateOutletContext]="{ $implicit: message }">
