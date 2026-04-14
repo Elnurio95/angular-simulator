@@ -1,0 +1,124 @@
+<div class="loading-img" *ngIf="isLoading">
+    <img src="/images/loading-icon.svg" alt="loading" class="spinner">
+</div>
+<header class="header">
+    <div class="container">
+        <div class="container__wrapper justify-content">
+            <div class="company">
+                <div class="company__logo">
+                    <img src="/images/mountain-logo.svg" alt="logo">
+                </div>
+                <div>
+                    <p class="company__name">{{ companyName }}</p>
+                </div>
+            </div>
+            @for (nav of navigation; track nav.id) {
+                <nav class="nav">
+                    <a routerLink="" id="nav-link-main">Главная</a>
+                    <a routerLink="users" routerLinkActive="active-link" id="nav-link-guide">Пользователи</a>
+                </nav>
+            } 
+            <button id="consult-btn" class="primary-btn fs-16 fw-600">
+                Консультация
+            </button>
+            <div class="header-tasks">
+                @if (widget === 'date') {
+                    <span>{{ today | date:'dd.MM.yyyy HH:mm:ss' }}</span>
+                }
+                @if (widget === 'counter') {         
+                    <div class="click-btn tasks">
+                        <button id="click-plus" class="click fs-24" (click)="counter = counter + 1">+</button>
+                    <p class="count">{{ counter }}</p>
+                    <button 
+                        id="click-minus" 
+                        class="click fs-24" 
+                        (click)="counter > 0 && (counter = counter - 1)" 
+                        [disabled]="counter === 0"
+                    >-</button>
+                </div>
+                }
+            <button id="tasks-wrapper" class="fs-16 tasks" (click)="toggleWidget(widget === 'date' ? 'counter' : 'date')">
+                {{ widget }}
+            </button>
+            </div>
+        </div>
+        <div class="header__form">
+            <div class="header__slogan fw-400">
+                <p class="slogan">
+                    Насладись прогулкой в горах <br>
+                    с командой единомышленников
+                </p>
+            </div>
+            <div class="choice__field gap">
+                <form action="" class="form gap">
+                    <div class="choice">
+                        <div class="choose__subject">
+                            <input 
+                                type="text" 
+                                placeholder="Локация для тура"
+                                id="tour-location" 
+                                class="fs-16 fw-700"
+                                [(ngModel)]="tourLocation" 
+                                name="tourLocation"
+                            >
+                            <select name="location" id="location" [(ngModel)]="tourLocation">
+                                <option value="" disabled selected></option>
+                                <option value="Baku">Баку</option>
+                                <option value="Batumi">Батуми</option>
+                                <option value="Derbent">Дербент</option>
+                                <option value="Sochi">Сочи</option>
+                                <option value="Altay">Алтай</option>
+                            </select>
+                        </div>
+                        <option value="" class="fs-14 fw-400" disabled selected>выберите из списка</option>
+                    </div>
+                    <div class="choice">
+                        <div class="choose__subject">
+                            @if (!tourDate) {
+                                <span class="date-inscription" [class.removeLettering]="isDateActive">
+                                    Дата похода
+                                </span>
+                                <input 
+                                    type="date" 
+                                    id="date" 
+                                    name="date" 
+                                    class="choose__date-input"
+                                    (focus)="isDateActive = true" 
+                                    [(ngModel)]="tourDate"
+                                    >
+                                <span class="choose__date-icon"></span>
+                            }
+                        </div>
+                        <option value="" class="fs-14 fw-400" disabled selected>укажите дату</option>
+                    </div>
+                    <div class="choice">
+                        <div class="choose__subject">
+                            <input 
+                                type="text" 
+                                placeholder="Участники" 
+                                class="fs-16 fw-700" 
+                                id="choose-participants"
+                                [(ngModel)]="tourParticipant" 
+                                name="participant"
+                            >
+                            <select name="participants" id="participants" [(ngModel)]="tourParticipant">
+                                <option value="name"></option>
+                                <option value="name">Илья</option>
+                                <option value="name">Эльнур</option>
+                                <option value="name">Сергей</option>
+                                <option value="name">Ильнур</option>
+                                <option value="name">Владислав</option>
+                            </select>
+                        </div>
+                        <option value="" class="fs-14 fw-400" disabled selected>выберите из списка</option>
+                    </div>
+                </form>
+                <button id="search-btn" [disabled]="isFormInvalid" class="fw-700 fs-16">Найти программу</button>
+            </div>
+            <div class="input-words">
+                <input type="text" id="live-input" class="tasks fs-16" [(ngModel)]="liveInputValue" placeholder="Живой инпут">
+                <div class="live-input-value tasks fs-16">{{ liveInputValue }}</div>
+            </div>
+        </div>
+    </div>
+</header>

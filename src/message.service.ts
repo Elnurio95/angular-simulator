@@ -1,53 +1,43 @@
-import { Injectable } from "@angular/core";
-import { IMessage } from "./interfaces/IMessage";
-import { Message } from "./enums/Message";
+import { Injectable } from '@angular/core';
+import { IMessage } from './interfaces/IMessage';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class MessageService {
   messages: IMessage[] = [];
 
-  addMessage(message: Omit<IMessage, 'id'>): void {
-    const messageWithId: IMessage = {
-      ...message,
+  private addMessage(message: string, type: string) : void {
+    const newMessage: IMessage = {
       id: Date.now(),
+      message,
+      type
     };
 
-    this.messages = [...this.messages, messageWithId]
-  }
+    this.messages.push(newMessage);
 
-  closeMessage(id: number): void {
-    this.messages = this.messages.filter(
-      (message: IMessage) => message.id !== id
-    );
+    setTimeout(() => {
+      this.messages = this.messages.filter(m => m.id !== newMessage.id);
+    }, 3000);
   }
 
   showSuccess(message: string): void {
-    this.addMessage({
-      message,
-      type: Message.SUCCESS,
-    });
+    this.addMessage(message, 'success');
   }
 
   showError(message: string): void {
-    this.addMessage({
-      message,
-      type: Message.ERROR,
-    });
-  }
-
-  showInfo(message: string): void {
-    this.addMessage({
-      message,
-      type: Message.INFO,
-    });
+    this.addMessage(message, 'error');
   }
 
   showWarn(message: string): void {
-    this.addMessage({
-      message,
-      type: Message.WARN,
-    });
+    this.addMessage(message, 'warn');
+  }
+
+  showInfo(message: string): void {
+    this.addMessage(message, 'info');
+  }
+
+  closeMessage(index: number): void {
+    this.messages.splice(index, 1);
   }
 }
