@@ -25,8 +25,8 @@ export class MessageService {
     this.addMessage(message, Message.INFO);
   }
 
-  closeMessage(index: number): void {
-    this.messages.filter((_, i) => i !== index)
+  closeMessage(id: number): void {
+    this.messages = this.messages.filter((message: IMessage) => message.id !== id)
   }
 
   private addMessage(message: string, type: string) : void {
@@ -39,7 +39,7 @@ export class MessageService {
     this.messages = [...this.messages, newMessage]
 
     setTimeout(() => {
-      this.messages = this.messages.filter(m => m.id !== newMessage.id);
+      this.messages = this.messages.filter((m: IMessage) => m.id !== newMessage.id);
     }, 3000);
   }
   
