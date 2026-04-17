@@ -5,6 +5,7 @@ import { IBlog } from '../../interfaces/IBlog';
 import { IPlace } from '../../interfaces/IPlace';
 import { ITour } from '../../interfaces/ITour';
 import { CommonModule } from '@angular/common';
+import { IPicture } from '../../interfaces/Ipicture';
 
 @Component({
   selector: 'app-home-page',
@@ -115,6 +116,6 @@ export class HomePageComponent {
       }
     ];
 
-    pictures = ['balls', 'photographer-tools', 'burj-al-arab', 'pier', 'canyon', 'diary'];
+    pictures: string[] = ['balls', 'photographer-tools', 'burj-al-arab', 'pier', 'canyon', 'diary'];
      
 }
