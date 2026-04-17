@@ -17,10 +17,6 @@ export class HomePageComponent {
 
   messageService: MessageService = inject(MessageService); 
 
-  closeMessage(index: number): void {
-    this.messageService.closeMessage(index);  
-  }
-
   tours: ITour[] = [  
     {
       id: 1,
@@ -116,6 +112,10 @@ export class HomePageComponent {
       }
     ];
 
-    pictures: string[] = ['balls', 'photographer-tools', 'burj-al-arab', 'pier', 'canyon', 'diary'];
+  pictures: string[] = ['balls', 'photographer-tools', 'burj-al-arab', 'pier', 'canyon', 'diary'];
+
+  closeMessage(index: number): void {
+    this.messageService.closeMessage(index);  
+  }
      
 }

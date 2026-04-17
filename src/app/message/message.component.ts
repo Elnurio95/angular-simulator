@@ -11,21 +11,6 @@ import { IMessage } from '../../interfaces/IMessage';
 export class MessageComponent {
 
   messages: IMessage[] = [];
-  
-  private addMessage(message: Omit<IMessage, 'id'>): void {
-    const messageWithId: IMessage = {
-      ...message,
-      id: Date.now(),
-    };
-
-    this.messages = [...this.messages, messageWithId]
-  }
-
-  closeMessage(id: number): void {
-    this.messages = this.messages.filter(
-      (message: IMessage) => message.id !== id
-    );
-  }
 
   showSuccess(message: string): void {
     this.addMessage({
@@ -53,6 +38,21 @@ export class MessageComponent {
       message,
       type: Message.WARN,
     });
+  }
+
+  closeMessage(id: number): void {
+    this.messages = this.messages.filter(
+      (message: IMessage) => message.id !== id
+    );
+  }
+
+  private addMessage(message: Omit<IMessage, 'id'>): void {
+    const messageWithId: IMessage = {
+      ...message,
+      id: Date.now(),
+    };
+
+    this.messages = [...this.messages, messageWithId]
   }
 
 }
