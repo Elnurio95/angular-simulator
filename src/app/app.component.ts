@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { Color } from '../enums/Color';
 import { FormsModule } from '@angular/forms';
-import { CommonModule, NgTemplateOutlet } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { MessageService } from '../message.service';
 import { LocalStorageService } from '../local-storage.service';
 import { RouterOutlet } from "@angular/router";
@@ -15,10 +15,10 @@ import { FooterComponent } from "./footer/footer.component";
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   standalone: true,
-  providers: [MessageService, LocalStorageService]
+  providers: []
 })
 export class AppComponent {
- 
+  
   private localStorageService: LocalStorageService = inject(LocalStorageService);
 
   isColor(color: Color): boolean {

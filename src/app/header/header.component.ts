@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { WidgetType } from '../../Types/WidgetType';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { INav } from '../../interfaces/INav';
+import { INavigation } from '../../interfaces/INavigation';
 import { RouterLink, RouterLinkActive } from "@angular/router";
 
 @Component({
@@ -43,7 +43,7 @@ export class HeaderComponent {
     return !this.tourLocation || !this.tourDate || !this.tourParticipant;
   }
   
-  navigation: INav[] = [
+  navigation: INavigation[] = [
     {
       id: 1, 
       main: 'Главная', 

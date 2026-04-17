@@ -1,12 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { AppComponent } from '../app.component';
 import { MessageService } from '../../message.service';
-import { IPicture } from '../../interfaces/Ipicture';
 import { IBlog } from '../../interfaces/IBlog';
 import { IPlace } from '../../interfaces/IPlace';
 import { ITour } from '../../interfaces/ITour';
 import { CommonModule } from '@angular/common';
-import { MessageComponent } from '../message/message.component';
 
 @Component({
   selector: 'app-home-page',
@@ -117,31 +115,6 @@ export class HomePageComponent {
       }
     ];
 
-    pictures: IPicture[] = [
-      {
-        id: 1, 
-        picture: 'balls'
-      },
-      {
-        id: 2, 
-        picture: 'photographer-tools'
-      },
-      {
-        id: 3, 
-        picture: 'burj-al-arab'
-      },
-      {
-        id: 4, 
-        picture: 'pier'
-      },
-      {
-        id: 5, 
-        picture: 'canyon'
-      },
-      {
-        id: 6, 
-        picture: 'diary'
-      }, 
-    ];
+    pictures = ['balls', 'photographer-tools', 'burj-al-arab', 'pier', 'canyon', 'diary'];
      
 }
