@@ -2,7 +2,6 @@ import { Component, inject } from '@angular/core';
 import { Color } from '../enums/Color';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { MessageService } from '../message.service';
 import { LocalStorageService } from '../local-storage.service';
 import { RouterOutlet } from "@angular/router";
 import { HeaderComponent } from "./header/header.component";

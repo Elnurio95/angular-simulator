@@ -15,7 +15,7 @@
             @for (nav of navigation; track nav.id) {
                 <nav class="nav">
                     <a routerLink="" id="nav-link-main">Главная</a>
-                    <a routerLink="users" routerLinkActive="active-link" id="nav-link-guide">Пользователи</a>
+                    <a routerLink="users" routerLinkActive="active-link" id="nav-link-guide" [routerLinkActiveOptions]="{ exact: true }">Пользователи</a>
                 </nav>
             } 
             <button id="consult-btn" class="primary-btn fs-16 fw-600">

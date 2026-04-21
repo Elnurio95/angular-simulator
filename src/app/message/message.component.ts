@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Message } from '../../enums/Message';
 import { IMessage } from '../../interfaces/IMessage';
+import { Message } from '../../enums/Message';
 
 @Component({
   selector: 'app-message',

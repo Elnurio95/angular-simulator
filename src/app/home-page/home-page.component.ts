@@ -1,11 +1,9 @@
 import { Component, inject } from '@angular/core';
-import { AppComponent } from '../app.component';
 import { MessageService } from '../../message.service';
 import { IBlog } from '../../interfaces/IBlog';
 import { IPlace } from '../../interfaces/IPlace';
 import { ITour } from '../../interfaces/ITour';
 import { CommonModule } from '@angular/common';
-import { IPicture } from '../../interfaces/Ipicture';
 
 @Component({
   selector: 'app-home-page',
