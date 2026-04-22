@@ -1,0 +1,135 @@
+.footer {
+  position: relative;
+  color: var(--secondary-background-color);
+  background-color: #1A3E3E;
+}
+
+.footer__input {
+  color: var(--blog-color);
+}
+
+.wrapper {
+  padding-top: 178px;
+  display: flex;
+}
+
+.company__info {
+  width: 480px;
+
+  .company-desc {
+    padding-bottom: 80px;
+  }
+}
+
+.contacts {
+  gap: 24px;
+  padding-bottom: 32px;
+}
+
+.service__list {
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-right: 120px;
+}
+
+.service__link {
+  text-decoration: none;
+  gap: 4px;
+  color: var(--secondary-background-color);
+}
+
+.service__item {
+  column-gap: 16px;
+  list-style-type: none;
+}
+
+.important {
+  width: 280px;
+}
+
+.social__list {
+  align-items: center;
+  gap: 16px;
+}
+.social__item {
+  list-style-type: none;
+}
+
+.form__wrap {
+  display: flex;
+  position: absolute;
+  background-color: var(--prime-background-color);
+  top: -98px;
+  padding: 40px 100px;
+  gap: 64px;
+}
+
+.form__title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  .title {
+    text-align: start;
+  }
+}
+
+#subscribe-btn {
+  width: 240px;
+  padding: 12px 24px;
+  display: flex;
+}
+
+.subscribe-input {
+  width: 280px;
+}
+
+.subscribe-news {
+  display: flex;
+  gap: 16px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.subscribe-input {
+  border: none;
+  background-color: #F3F5F4;
+}
+
+input::placeholder {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 20px;
+  font-style: light;
+  color: #18121E;
+  padding-left: 12px;
+}
+
+.subsc-desc {
+  color: #18121E;
+}
+
+#subsc-link {
+  color: #18121E;
+}
+
+
+.legal__owner {
+  display: flex;
+  justify-content: space-around;
+  background-color: var(--blog-color);
+  align-items: center;
+  height: 66px;
+}
+
+#legalName {
+  text-decoration: none; 
+  list-style-type: none;
+}
+
+#legalRules {
+  text-decoration: none; 
+  list-style-type: none;
+}

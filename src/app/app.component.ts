@@ -1,61 +1,24 @@
 import { Component, inject } from '@angular/core';
 import { Color } from '../enums/Color';
-import { ITour } from '../interfaces/ITour';
 import { FormsModule } from '@angular/forms';
-import { CommonModule, NgTemplateOutlet } from '@angular/common';
-import { WidgetType } from '../Types/WidgetType';
-import { IPlace } from '../interfaces/IPlace';
-import { IBlog } from '../interfaces/IBlog';
-import { MessageService } from '../message.service';
-import { Message } from '../enums/Message';
+import { CommonModule } from '@angular/common';
 import { LocalStorageService } from '../local-storage.service';
+import { RouterOutlet } from "@angular/router";
+import { HeaderComponent } from "./header/header.component";
+import { FooterComponent } from "./footer/footer.component";
+
 
 @Component({
   selector: 'app-root',
-  imports: [FormsModule, CommonModule, NgTemplateOutlet],
+  imports: [FormsModule, CommonModule, HeaderComponent, FooterComponent, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   standalone: true,
-  providers: [MessageService, LocalStorageService]
+  providers: []
 })
 export class AppComponent {
- 
-  messageService: MessageService = inject(MessageService); 
+  
   private localStorageService: LocalStorageService = inject(LocalStorageService);
-
-  companyName: string = 'румтибет';
-  tourLocation: string = ''; 
-  tourDate: string = ''; 
-  tourParticipant: string = '';
-  today: Date = new Date(); 
-  liveInputValue: string = ''; 
-  widget: WidgetType = 'date'; 
-  counter: number = 0; 
-  isLoading: boolean = true; 
-  count: boolean = false; 
-  isDateActive: boolean = false;
-
-  constructor() {
-    setInterval(() => {
-      this.today = new Date();
-    }, 1000);
-
-    setInterval(() => {
-      this.isLoading = false; 
-    }, 2000)
-  }
-
-  closeMessage(index: number): void {
-    this.messageService.closeMessage(index);  
-  }
-
-  toggleWidget(widget: WidgetType): void {
-    this.widget = widget; 
-  }
-
-  get isFormInvalid(): boolean {
-    return !this.tourLocation || !this.tourDate || !this.tourParticipant;
-  }
 
   isColor(color: Color): boolean {
     const mainArr: Color[] = [Color.BLUE, Color.RED, Color.GREEN];
@@ -73,100 +36,5 @@ export class AppComponent {
 
     this.localStorageService.setItem(USERS_KEY, visits);
   }
-
-  tours: ITour[] = [  
-    {
-      id: 1,
-      image: 'guide-trip-icon',
-      title: 'Опытный гид',
-      description:
-        'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
-    },
-    {
-      id: 2,
-      image: 'safety-icon',
-      title: 'Безопасный поход',
-      description:
-        'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
-    },
-    {
-      id: 3,
-      image: 'loyality-icon',
-      title: 'Лояльные цены',
-      description:
-        'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
-    },
-  ];
-
-  places: IPlace[] = [
-    {
-      id: 1, 
-      img: 'lake-mountain', 
-      tourName: 'Озеро возле гор', 
-      tourSubtitle: 'романтическое приключение', 
-      price: 480, 
-      rates: {
-        rateIcon: 'star-icon', 
-        rate: 4.9
-      }
-    }, 
-    {
-      id: 2, 
-      img: 'night-in-mountains', 
-      tourName: 'Ночь в горах', 
-      tourSubtitle: 'в компании друзей', 
-      price: 500, 
-      rates: {
-        rateIcon: 'star', 
-        rate: 4.9
-      }
-    }, 
-    {
-      id: 3, 
-      img: 'stretching-in-mountains', 
-      tourName: 'Растяжка в горах', 
-      tourSubtitle: 'для тех, кто забоится о себе', 
-      price: 230, 
-      rates: {
-        rateIcon: 'star', 
-        rate: 4.9
-      }
-    }
-  ]
-
-  blogs: IBlog[] = [
-    {
-      id: 1, 
-      blogImg: 'italian-city', 
-      mainTitle: 'Красивая Италия, какая она в реальности?', 
-      desc: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.', 
-      date: '01/04/2023',
-      link: 'читать статью'
-    },
-    {
-      id: 2, 
-      blogImg: 'airplane', 
-      mainTitle: 'Долой сомнения! Весь мир открыт для вас!', 
-      desc: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации ... независимые способы реализации соответствующих...', 
-      date: '01/04/2023',
-      link: 'читать статью'
-    },
-    {
-      id: 3, 
-      blogImg: 'travel-preparing', 
-      mainTitle: 'Как подготовиться к путешествию в одиночку?', 
-      desc: 'Для современного мира базовый вектор развития предполагает.', 
-      date: '01/04/2023',
-      link: 'читать статью'
-    },
-    {
-      id: 4, 
-      blogImg: 'indian-mosque', 
-      mainTitle: 'Индия ... летим?', 
-      desc: 'Для современного мира базовый.', 
-      date: '01/04/2023',
-      link: 'читать статью'
-    }
-  ]
 
 }
