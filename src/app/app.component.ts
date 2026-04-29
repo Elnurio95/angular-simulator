@@ -6,11 +6,12 @@ import { LocalStorageService } from '../local-storage.service';
 import { RouterOutlet } from "@angular/router";
 import { HeaderComponent } from "./header/header.component";
 import { FooterComponent } from "./footer/footer.component";
+import { LoaderComponent } from './loader/loader.component';
 
 
 @Component({
   selector: 'app-root',
-  imports: [FormsModule, CommonModule, HeaderComponent, FooterComponent, RouterOutlet],
+  imports: [FormsModule, CommonModule, HeaderComponent, FooterComponent, RouterOutlet, LoaderComponent ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   standalone: true,
