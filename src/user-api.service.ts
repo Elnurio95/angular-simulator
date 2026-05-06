@@ -1,15 +1,16 @@
-import { HttpClient } from "@angular/common/http";
-import { inject, Injectable } from "@angular/core";
-import { IUser } from "./interfaces/IUser";
+import { HttpClient } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
+import { IUser } from './interfaces/IUser';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserApiService {
 
-    private http: HttpClient = inject(HttpClient); 
+  private http: HttpClient = inject(HttpClient);
 
-    getUsers() {
-        return this.http.get<IUser[]>('https://jsonplaceholder.typicode.com/users'); 
-    }
+  getUsers() {
+    return this.http.get<IUser[]>('https://jsonplaceholder.typicode.com/users');
+  }
+  
 }

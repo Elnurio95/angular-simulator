@@ -1,0 +1,79 @@
+.users__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.users__inner {
+    border-top: 4px solid var(--users-color);
+    padding: 35px 30px 50px 30px;
+    color:   #1D3939;
+
+    .username {
+        color: var(--users-color);
+    }
+}
+
+.users__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 9.6px;
+    margin-top: 45px;
+    margin-bottom: 24.6px;
+}
+
+.users__main-info {
+    letter-spacing: 1.2px;
+    line-height: 13.8px;
+    color: #1D3939;
+    padding-bottom: 12px;
+}
+
+.common__info {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+}
+
+.info__line {
+    width: 289px;
+    height: 0px;
+    border: 1px solid #E2E8F0;
+}
+
+.users-info {
+    display: flex;
+    justify-content: space-between;
+    color: #667C7C;
+    line-height: 19.6px;
+
+    &-email {
+        color: var(--users-color);
+    }
+
+    &-website {
+        color: var(--users-color);
+    }
+
+    span {
+        font-size: 14px;
+        font-weight: 700;
+    }
+}
+
+.users__adress {
+    display: flex;
+    flex-direction: column;
+    gap: 9.6px;
+    margin-top: 45px;
+    margin-bottom: 24.6px;
+}
+
+.users__job {
+    display: flex;
+    flex-direction: column;
+    gap: 9.6px;
+    margin-top: 45px;
+    margin-bottom: 24.6px;
+}

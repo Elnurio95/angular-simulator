@@ -4,16 +4,27 @@ import { IBlog } from '../../interfaces/IBlog';
 import { IPlace } from '../../interfaces/IPlace';
 import { ITour } from '../../interfaces/ITour';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-home-page',
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss',
 })
 export class HomePageComponent {
 
   messageService: MessageService = inject(MessageService); 
+
+  tourLocation: string = ''; 
+  tourParticipant: string = '';
+  tourDate: string = '';
+  isDateActive: boolean = false;
+  liveInputValue: string = ''; 
+  
+  get isFormInvalid(): boolean {
+    return !this.tourLocation || !this.tourDate || !this.tourParticipant;
+  }
 
   tours: ITour[] = [  
     {

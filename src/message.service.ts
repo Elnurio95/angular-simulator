@@ -8,9 +8,9 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class MessageService {
 
-  private messageSubject: BehaviorSubject<IMessage[]> = new BehaviorSubject<IMessage[]>([]); 
+  private messagesSubject: BehaviorSubject<IMessage[]> = new BehaviorSubject<IMessage[]>([]); 
 
-  messages$: Observable<IMessage[]> = this.messageSubject.asObservable(); 
+  messages$: Observable<IMessage[]> = this.messagesSubject.asObservable(); 
 
   showSuccess(message: string): void {
     this.addMessage(message, Message.SUCCESS);
@@ -29,8 +29,8 @@ export class MessageService {
   }
 
   closeMessage(id: number): void {
-    this.messageSubject.next(
-      this.messageSubject.value.filter((message: IMessage) => message.id !== id)
+    this.messagesSubject.next(
+      this.messagesSubject.value.filter((message: IMessage) => message.id !== id)
     ); 
   }
 
@@ -41,7 +41,7 @@ export class MessageService {
       type
     };
 
-    this.messageSubject.next([...this.messageSubject.value, newMessage]); 
+    this.messagesSubject.next([...this.messagesSubject.value, newMessage]); 
 
     setTimeout(() => {
       this.closeMessage(newMessage.id)

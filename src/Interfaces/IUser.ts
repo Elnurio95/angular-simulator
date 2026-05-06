@@ -12,6 +12,13 @@ export interface IUser {
         lat: string,
         lng: string, 
       }
+    },
+    phone: number, 
+    website: string, 
+    company: {
+      name: string, 
+      catchPhrase: string, 
+      bs: string
     }
 }
 

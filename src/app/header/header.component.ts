@@ -14,16 +14,11 @@ import { RouterLink, RouterLinkActive } from "@angular/router";
 export class HeaderComponent {
 
   companyName: string = 'румтибет';
-  tourLocation: string = ''; 
-  tourDate: string = ''; 
-  tourParticipant: string = '';
   widget: WidgetType = 'date'; 
   today: Date = new Date(); 
-  liveInputValue: string = ''; 
   counter: number = 0; 
   isLoading: boolean = true; 
   count: boolean = false; 
-  isDateActive: boolean = false;
 
   constructor() {
     setInterval(() => {
@@ -37,10 +32,6 @@ export class HeaderComponent {
 
   toggleWidget(widget: WidgetType): void {
     this.widget = widget; 
-  }
-
-  get isFormInvalid(): boolean {
-    return !this.tourLocation || !this.tourDate || !this.tourParticipant;
   }
   
   navigation: INavigation[] = [

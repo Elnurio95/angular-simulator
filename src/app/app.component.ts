@@ -7,11 +7,12 @@ import { RouterOutlet } from "@angular/router";
 import { HeaderComponent } from "./header/header.component";
 import { FooterComponent } from "./footer/footer.component";
 import { LoaderComponent } from './loader/loader.component';
+import { MessageComponent } from "./message/message.component";
 
 
 @Component({
   selector: 'app-root',
-  imports: [FormsModule, CommonModule, HeaderComponent, FooterComponent, RouterOutlet, LoaderComponent ],
+  imports: [FormsModule, CommonModule, HeaderComponent, FooterComponent, RouterOutlet, LoaderComponent, MessageComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   standalone: true,
