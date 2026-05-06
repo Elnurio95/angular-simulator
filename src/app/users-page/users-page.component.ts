@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
 })
 export class UsersPageComponent {
 
-  users = inject(UserService); 
+  users: UserService = inject(UserService); 
 
   ngOnInit(): void {
     this.users.loadUsers().subscribe(); 

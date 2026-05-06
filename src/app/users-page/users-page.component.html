@@ -1,7 +1,7 @@
 <div class="users_wrap">
     <div class="container">
         <div class="users__wrapper">
-            @for( user of users.users$| async; track user.id) {
+            @for( user of users.users$ | async; track user.id) {
                 <div class="users__inner">
                     <h1>{{ user.name }}</h1>
                     <p class="fw-700 fs-15 username">{{ user.username }}</p>

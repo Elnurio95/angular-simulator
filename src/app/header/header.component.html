@@ -10,34 +10,33 @@
                 </div>
             </div>
             @for (nav of navigation; track nav.id) {
-                <nav class="nav">
-                    <a routerLink="" id="nav-link-main">Главная</a>
-                    <a routerLink="users" routerLinkActive="active-link" id="nav-link-guide" [routerLinkActiveOptions]="{ exact: true }">Пользователи</a>
-                </nav>
-            } 
+            <nav class="nav">
+                <a routerLink="" id="nav-link-main">Главная</a>
+                <a routerLink="users" routerLinkActive="active-link" id="nav-link-guide"
+                    [routerLinkActiveOptions]="{ exact: true }">Пользователи</a>
+            </nav>
+            }
             <button id="consult-btn" class="primary-btn fs-16 fw-600">
                 Консультация
             </button>
             <div class="header-tasks">
                 @if (widget === 'date') {
-                    <span>{{ today | date:'dd.MM.yyyy HH:mm:ss' }}</span>
+                <span>{{ today | date:'dd.MM.yyyy HH:mm:ss' }}</span>
                 }
-                @if (widget === 'counter') {         
-                    <div class="click-btn tasks">
-                        <button id="click-plus" class="click fs-24" (click)="counter = counter + 1">+</button>
+                @if (widget === 'counter') {
+                <div class="click-btn tasks">
+                    <button id="click-plus" class="click fs-24" (click)="counter = counter + 1">+</button>
                     <p class="count">{{ counter }}</p>
-                    <button 
-                        id="click-minus" 
-                        class="click fs-24" 
-                        (click)="counter > 0 && (counter = counter - 1)" 
-                        [disabled]="counter === 0"
-                    >-</button>
+                    <button id="click-minus" class="click fs-24" (click)="counter > 0 && (counter = counter - 1)"
+                        [disabled]="counter === 0">-</button>
                 </div>
                 }
-            <button id="tasks-wrapper" class="fs-16 tasks" (click)="toggleWidget(widget === 'date' ? 'counter' : 'date')">
-                {{ widget }}
-            </button>
+                <button id="tasks-wrapper" class="fs-16 tasks"
+                    (click)="toggleWidget(widget === 'date' ? 'counter' : 'date')">
+                    {{ widget }}
+                </button>
             </div>
         </div>
     </div>
 </header>
+        
