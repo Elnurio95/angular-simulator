@@ -1,42 +1,62 @@
 <div class="users_wrap">
     <div class="container">
         <div class="users__wrapper">
-            @for( user of users.users$ | async; track user.id) {
-                <div class="users__inner">
-                    <h1>{{ user.name }}</h1>
-                    <p class="fw-700 fs-15 username">{{ user.username }}</p>
-                    <div class="users__contacts">
-                        <div class="common__info">
-                            <p class="users__main-info fw-800 fs-12">Контакты</p>
-                            <div class="info__line"></div>
-                        </div>
-                        <p class="users-info fw-400 fs-14">Эл. почта: 
-                            <span class="users-info-email">{{ user.email }}</span>
-                        </p>
-                        <p class="users-info fw-400 fs-14">Телефон: <span>{{ user.phone }}</span></p>
-                        <p class="users-info fw-400 fs-14">Веб-сайт: <span class="users-info-website">{{ user.website }}</span></p>
+            @for(user of users$| async; track user.id) {
+            <div class="users__inner">
+                <h1>{{ user.name }}</h1>
+                <p class="fw-700 fs-15 username">{{ user.username }}</p>
+                <div class="users__contacts">
+                    <div class="common__info">
+                        <p class="users__main-info fw-800 fs-12">Контакты</p>
+                        <div class="info__line"></div>
                     </div>
-                    <div class="users__address">
-                        <div class="common__info">
-                            <p class="users__main-info fw-800 fs-12">Адрес проживания</p>
-                            <div class="info__line"></div>
-                        </div>
-                        <p class="users-info fw-400 fs-14">Горд: <span>{{ user.address.city }}</span></p>
-                        <p class="users-info fw-400 fs-14">Улица: <span>{{ user.address.street }}</span></p>
-                        <p class="users-info fw-400 fs-14">Офис: <span>{{ user.address.suite }}</span></p>
-                        <p class="users-info fw-400 fs-14">Индекс: <span>{{ user.address.zipcode }}</span></p>
-                        <p class="users-info fw-400 fs-14">Кооординаты: <span>{{ user.address.geo.lat }}{{ user.address.geo.lng }}</span></p>
-                    </div>
-                    <div class="users__job">
-                        <div class="common__info">
-                            <p class="users__main-info fw-800 fs-12">Место работы</p>
-                            <div class="info__line"></div>
-                        </div>
-                        <p class="users-info fw-400 fs-14">Компания: <span>{{ user.company.name }}</span></p>
-                        <p class="users-info fw-400 fs-14">Миссия: <span>{{ user.company.catchPhrase }}</span></p>
-                        <p class="users-info fw-400 fs-14">Специализация: <span>{{ user.company.bs }}</span></p>
-                    </div>
+                    <p class="users-info fw-400 fs-14">Эл. почта:
+                        <span class="users-info-email">{{ user.email }}</span>
+                    </p>
+                    <p class="users-info fw-400 fs-14">Телефон: 
+                        <span>{{ user.phone }}</span>
+                    </p>
+                    <p class="users-info fw-400 fs-14">Веб-сайт: 
+                        <span class="users-info-website">{{ user.website}}</span>
+                    </p>
                 </div>
+                <div class="users__address">
+                    <div class="common__info">
+                        <p class="users__main-info fw-800 fs-12">Адрес проживания</p>
+                        <div class="info__line"></div>
+                    </div>
+                    <p class="users-info fw-400 fs-14">Горд: 
+                        <span>{{ user.address.city }}</span>
+                    </p>
+                    <p class="users-info fw-400 fs-14">Улица: 
+                        <span>{{ user.address.street }}</span>
+                    </p>
+                    <p class="users-info fw-400 fs-14">Офис: 
+                        <span>{{ user.address.suite }}</span>
+                    </p>
+                    <p class="users-info fw-400 fs-14">Индекс: 
+                        <span>{{ user.address.zipcode }}</span>
+                    </p>
+                    <p class="users-info fw-400 fs-14">Кооординаты: 
+                        <span>{{ user.address.geo.lat }}{{user.address.geo.lng }}</span>
+                    </p>
+                </div>
+                <div class="users__job">
+                    <div class="common__info">
+                        <p class="users__main-info fw-800 fs-12">Место работы</p>
+                        <div class="info__line"></div>
+                    </div>
+                    <p class="users-info fw-400 fs-14">Компания: 
+                        <span>{{ user.company.name }}</span>
+                    </p>
+                    <p class="users-info fw-400 fs-14">Миссия: 
+                        <span>{{ user.company.catchPhrase }}</span>
+                    </p>
+                    <p class="users-info fw-400 fs-14">Специализация: 
+                        <span>{{ user.company.bs }}</span>
+                    </p>
+                </div>
+            </div>
             }
         </div>
     </div>
