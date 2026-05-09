@@ -4,4 +4,3 @@ export interface ITour {
   title: string;
   description: string;
 }
-  

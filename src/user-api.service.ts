@@ -6,11 +6,9 @@ import { IUser } from './interfaces/IUser';
   providedIn: 'root',
 })
 export class UserApiService {
-
   private http: HttpClient = inject(HttpClient);
 
   getUsers() {
     return this.http.get<IUser[]>('https://jsonplaceholder.typicode.com/users');
   }
-  
 }

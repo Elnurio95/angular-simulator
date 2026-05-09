@@ -1,210 +1,252 @@
 <div class="container">
-    <div class="header__form">
-        <div class="header__slogan fw-400">
-            <p class="slogan">
-                Насладись прогулкой в горах <br>
-                с командой единомышленников
-            </p>
-        </div>
-        <div class="choice__field gap">
-            <form action="" class="form gap">
-                <div class="choice">
-                    <div class="choose__subject">
-                        <input type="text" placeholder="Локация для тура" id="tour-location" class="fs-16 fw-700"
-                            [(ngModel)]="tourLocation" name="tourLocation">
-                        <select name="location" id="location" [(ngModel)]="tourLocation">
-                            <option value="" disabled selected></option>
-                            <option value="Baku">Баку</option>
-                            <option value="Batumi">Батуми</option>
-                            <option value="Derbent">Дербент</option>
-                            <option value="Sochi">Сочи</option>
-                            <option value="Altay">Алтай</option>
-                        </select>
-                    </div>
-                    <option value="" class="fs-14 fw-400" disabled selected>выберите из списка</option>
-                </div>
-                <div class="choice">
-                    <div class="choose__subject">
-                        @if (!tourDate) {
-                        <span class="date-inscription" [class.removeLettering]="isDateActive">
-                            Дата похода
-                        </span>
-                        <input type="date" id="date" name="date" class="choose__date-input"
-                            (focus)="isDateActive = true" [(ngModel)]="tourDate">
-                        <span class="choose__date-icon"></span>
-                        }
-                    </div>
-                    <option value="" class="fs-14 fw-400" disabled selected>укажите дату</option>
-                </div>
-                <div class="choice">
-                    <div class="choose__subject">
-                        <input type="text" placeholder="Участники" class="fs-16 fw-700" id="choose-participants"
-                            [(ngModel)]="tourParticipant" name="participant">
-                        <select name="participants" id="participants" [(ngModel)]="tourParticipant">
-                            <option value="name"></option>
-                            <option value="name">Илья</option>
-                            <option value="name">Эльнур</option>
-                            <option value="name">Сергей</option>
-                            <option value="name">Ильнур</option>
-                            <option value="name">Владислав</option>
-                        </select>
-                    </div>
-                    <option value="" class="fs-14 fw-400" disabled selected>выберите из списка</option>
-                </div>
-            </form>
-            <button id="search-btn" [disabled]="isFormInvalid" class="fw-700 fs-16">Найти программу</button>
-        </div>
-        <div class="input-words">
-            <input type="text" id="live-input" class="tasks fs-16" [(ngModel)]="liveInputValue"
-                placeholder="Живой инпут">
-            <div class="live-input-value tasks fs-16">{{ liveInputValue }}</div>
-        </div>
+  <div class="header__form">
+    <div class="header__slogan fw-400">
+      <p class="slogan">
+        Насладись прогулкой в горах <br />
+        с командой единомышленников
+      </p>
     </div>
+    <div class="choice__field gap">
+      <form action="" class="form gap">
+        <div class="choice">
+          <div class="choose__subject">
+            <input
+              type="text"
+              placeholder="Локация для тура"
+              id="tour-location"
+              class="fs-16 fw-700"
+              [(ngModel)]="tourLocation"
+              name="tourLocation"
+            />
+            <select name="location" id="location" [(ngModel)]="tourLocation">
+              <option value="" disabled selected></option>
+              <option value="Baku">Баку</option>
+              <option value="Batumi">Батуми</option>
+              <option value="Derbent">Дербент</option>
+              <option value="Sochi">Сочи</option>
+              <option value="Altay">Алтай</option>
+            </select>
+          </div>
+          <option value="" class="fs-14 fw-400" disabled selected>выберите из списка</option>
+        </div>
+        <div class="choice">
+          <div class="choose__subject">
+            @if (!tourDate) {
+              <span class="date-inscription" [class.removeLettering]="isDateActive">
+                Дата похода
+              </span>
+              <input
+                type="date"
+                id="date"
+                name="date"
+                class="choose__date-input"
+                (focus)="isDateActive = true"
+                [(ngModel)]="tourDate"
+              />
+              <span class="choose__date-icon"></span>
+            }
+          </div>
+          <option value="" class="fs-14 fw-400" disabled selected>укажите дату</option>
+        </div>
+        <div class="choice">
+          <div class="choose__subject">
+            <input
+              type="text"
+              placeholder="Участники"
+              class="fs-16 fw-700"
+              id="choose-participants"
+              [(ngModel)]="tourParticipant"
+              name="participant"
+            />
+            <select name="participants" id="participants" [(ngModel)]="tourParticipant">
+              <option value="name"></option>
+              <option value="name">Илья</option>
+              <option value="name">Эльнур</option>
+              <option value="name">Сергей</option>
+              <option value="name">Ильнур</option>
+              <option value="name">Владислав</option>
+            </select>
+          </div>
+          <option value="" class="fs-14 fw-400" disabled selected>выберите из списка</option>
+        </div>
+      </form>
+      <button id="search-btn" [disabled]="isFormInvalid" class="fw-700 fs-16">
+        Найти программу
+      </button>
+    </div>
+    <div class="input-words">
+      <input
+        type="text"
+        id="live-input"
+        class="tasks fs-16"
+        [(ngModel)]="liveInputValue"
+        placeholder="Живой инпут"
+      />
+      <div class="live-input-value tasks fs-16">{{ liveInputValue }}</div>
+    </div>
+  </div>
 </div>
 <section class="section about-us">
-    <div class="container">
-        <div class="wrapper flex">
-            <div class="about-us-wrapper">
-                <div class="wrapper-content">
-                    <img src="/images/snowy-mountains.png" alt="snowy-mountains" class="snowy-mountain-photo">
-                    <img src="/images/forest.png" alt="forest" class="forest-mountain-photo">
-                </div>
-            </div>
-            <div class="wrapper-history">
-                <span class="about-trip fs-24">о нашем походе</span>
-                <p class="trip-title fs-32 fw-800">Исследуйте все горные массивы мира вместе с нами</p>
-                <p class="history fs-18">
-                    Его корни уходят в один фрагмент классической латыни 45 года
-                    н.э., то есть более двух тысячелетий
-                    назад. Ричард МакКлинток, профессор латыни из колледжа
-                    Hampden-Sydney, штат Вирджиния, взял одно из
-                    самых странных слов в Lorem Ipsum, "consectetur"и занялся
-                    его поисками в классической латинской
-                    литературе.
-                </p>
-                <button id="tour-program" class="primary-btn fs-16"
-                    (click)="messageService.showWarn('Программа тура')">Программа тура</button>
-            </div>
+  <div class="container">
+    <div class="wrapper flex">
+      <div class="about-us-wrapper">
+        <div class="wrapper-content">
+          <img
+            src="/images/snowy-mountains.png"
+            alt="snowy-mountains"
+            class="snowy-mountain-photo"
+          />
+          <img src="/images/forest.png" alt="forest" class="forest-mountain-photo" />
         </div>
+      </div>
+      <div class="wrapper-history">
+        <span class="about-trip fs-24">о нашем походе</span>
+        <p class="trip-title fs-32 fw-800">Исследуйте все горные массивы мира вместе с нами</p>
+        <p class="history fs-18">
+          Его корни уходят в один фрагмент классической латыни 45 года н.э., то есть более двух
+          тысячелетий назад. Ричард МакКлинток, профессор латыни из колледжа Hampden-Sydney, штат
+          Вирджиния, взял одно из самых странных слов в Lorem Ipsum, "consectetur"и занялся его
+          поисками в классической латинской литературе.
+        </p>
+        <button
+          id="tour-program"
+          class="primary-btn fs-16"
+          (click)="messageService.showWarn('Программа тура')"
+        >
+          Программа тура
+        </button>
+      </div>
     </div>
+  </div>
 </section>
 <section class="best__programs">
-    <div class="container">
-        <div class="wrapper">
-            <div class="program__info">
-                <p class="sub-title fs-24">наше предложение</p>
-                <p class="program__title fs-32 fw-800">Лучшие программы для тебя</p>
-                <p class="prorgam__history fs-18 fw-400">
-                    Его корни уходят в один фрагмент классической латыни 45 года
-                    н.э., то есть более двух тысячелетий
-                    назад. Ричард
-                    МакКлинток, профессор латыни из колледжа.
-                </p>
-                <div class="tour__programs">
-                    @for (tour of tours; track tour.id; let i = $index) {
-                    <div class="program">
-                        <div class="tour__content flex">
-                            <div class="trip">
-                                <img [src]="'/images/' + tour.image + '.svg'">
-                            </div>
-                            <div class="tour__info">
-                                <h4 class="tour-title">{{ tour.title }}</h4>
-                                <p>{{ tour.description }}</p>
-                            </div>
-                        </div>
-                    </div>
-                    }
+  <div class="container">
+    <div class="wrapper">
+      <div class="program__info">
+        <p class="sub-title fs-24">наше предложение</p>
+        <p class="program__title fs-32 fw-800">Лучшие программы для тебя</p>
+        <p class="prorgam__history fs-18 fw-400">
+          Его корни уходят в один фрагмент классической латыни 45 года н.э., то есть более двух
+          тысячелетий назад. Ричард МакКлинток, профессор латыни из колледжа.
+        </p>
+        <div class="tour__programs">
+          @for (tour of tours; track tour.id; let i = $index) {
+            <div class="program">
+              <div class="tour__content flex">
+                <div class="trip">
+                  <img [src]="'/images/' + tour.image + '.svg'" />
                 </div>
-                <button id="tour-price-btn" class="primary-btn fw-600 fs-16"
-                    (click)="messageService.showInfo('Стоимость отправлена на почту')">Стоимость программ</button>
+                <div class="tour__info">
+                  <h4 class="tour-title">{{ tour.title }}</h4>
+                  <p>{{ tour.description }}</p>
+                </div>
+              </div>
             </div>
-            <div class="program__photos">
-                <div class="photos__tours-first flex">
-                    <img src="/images/oasis.png" alt="oasis">
-                    <img src="/images/hiking-mountain.png" alt="hiking-mountain">
-                </div>
-                <div class="photos__tours-second flex">
-                    <img src="/images/snowmobile.png" alt="snowmobile">
-                    <img src="/images/green-mountain.png" alt="green-mountain">
-                </div>
-            </div>
+          }
         </div>
+        <button
+          id="tour-price-btn"
+          class="primary-btn fw-600 fs-16"
+          (click)="messageService.showInfo('Стоимость отправлена на почту')"
+        >
+          Стоимость программ
+        </button>
+      </div>
+      <div class="program__photos">
+        <div class="photos__tours-first flex">
+          <img src="/images/oasis.png" alt="oasis" />
+          <img src="/images/hiking-mountain.png" alt="hiking-mountain" />
+        </div>
+        <div class="photos__tours-second flex">
+          <img src="/images/snowmobile.png" alt="snowmobile" />
+          <img src="/images/green-mountain.png" alt="green-mountain" />
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 <section class="popular__directions">
-    <div class="travel__directions">
-        <div class="container">
-            <p class="subtitle fs-24 fw-400 lh-20">по версии отдыхающих</p>
-            <h1 class="title">Популярные направления</h1>
-            <div class="popular__places">
-                @for (place of places; track place.id) {
-                <div class="place__content">
-                    <img [src]="'/images/' + place.img + '.png'" alt="popular-place">
-                    <div class="content">
-                        <div class="text__desc">
-                            <h2 class="fs-24">{{ place.tourName }}</h2>
-                            <p class="tour-subtitle fs-14 fw-400">{{ place.tourSubtitle }}</p>
-                        </div>
-                        <div class="place__price">
-                            <p class="fs-20 fw-700">{{ place.price }} $</p>
-                        </div>
-                    </div>
-                    <div class="rate__content">
-                        <div class="rate__content-inner">
-                            <img [src]="'/images/' + place.rates.rateIcon + '.svg'" alt="place-rate">
-                        </div>
-                        <div class="rate__content-rate">
-                            {{ place.rates.rate }}
-                        </div>
-                    </div>
-                </div>
-                }
+  <div class="travel__directions">
+    <div class="container">
+      <p class="subtitle fs-24 fw-400 lh-20">по версии отдыхающих</p>
+      <h1 class="title">Популярные направления</h1>
+      <div class="popular__places">
+        @for (place of places; track place.id) {
+          <div class="place__content">
+            <img [src]="'/images/' + place.img + '.png'" alt="popular-place" />
+            <div class="content">
+              <div class="text__desc">
+                <h2 class="fs-24">{{ place.tourName }}</h2>
+                <p class="tour-subtitle fs-14 fw-400">{{ place.tourSubtitle }}</p>
+              </div>
+              <div class="place__price">
+                <p class="fs-20 fw-700">{{ place.price }} $</p>
+              </div>
             </div>
-            <button id="show-rate-btn" class="primary-btn fs-16 fw-600 lh-20"
-                (click)="messageService.showSuccess('Направления поолучены')">Рейтинг направлений</button>
-        </div>
+            <div class="rate__content">
+              <div class="rate__content-inner">
+                <img [src]="'/images/' + place.rates.rateIcon + '.svg'" alt="place-rate" />
+              </div>
+              <div class="rate__content-rate">
+                {{ place.rates.rate }}
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+      <button
+        id="show-rate-btn"
+        class="primary-btn fs-16 fw-600 lh-20"
+        (click)="messageService.showSuccess('Направления поолучены')"
+      >
+        Рейтинг направлений
+      </button>
     </div>
+  </div>
 </section>
 <section class="blog">
-    <div class="container">
-        <p class="subtitle fs-24 fw-400 lh-20">делимся впечатлениями</p>
-        <h1 class="title">Блог о путешествиях</h1>
-        <div class="travel__blog">
-            @for (blog of blogs; track blog.id) {
-            <div class="blog__desc">
-                <div class="blog__content">
-                    <div class="blog__img">
-                        <img [src]=" '/images/' + blog.blogImg + '.png' ">
-                    </div>
-                    <div class="description">
-                        <p class="fs-24 fw-700 lh-32">{{ blog.mainTitle }}</p>
-                        <span class="fs-14 fw-400 lh-20">{{ blog.desc }}</span>
-                        <div class="blog__date">
-                            <span class="fs-14 lh-20" style="color: #F2BE22;">{{ blog.date }}</span>
-                            <a class="blog-link" href="#">
-                                <span class="fs-14 lh-20" style="color: #1A3E3E;">{{ blog.link }}</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+  <div class="container">
+    <p class="subtitle fs-24 fw-400 lh-20">делимся впечатлениями</p>
+    <h1 class="title">Блог о путешествиях</h1>
+    <div class="travel__blog">
+      @for (blog of blogs; track blog.id) {
+        <div class="blog__desc">
+          <div class="blog__content">
+            <div class="blog__img">
+              <img [src]="'/images/' + blog.blogImg + '.png'" />
             </div>
-            }
+            <div class="description">
+              <p class="fs-24 fw-700 lh-32">{{ blog.mainTitle }}</p>
+              <span class="fs-14 fw-400 lh-20">{{ blog.desc }}</span>
+              <div class="blog__date">
+                <span class="fs-14 lh-20" style="color: #f2be22">{{ blog.date }}</span>
+                <a class="blog-link" href="#">
+                  <span class="fs-14 lh-20" style="color: #1a3e3e">{{ blog.link }}</span>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
-        <button id="show-rate-btn" class="primary-btn fs-16 fw-600 lh-20"
-            (click)="messageService.showError('Материалы недоступны')">
-            Другие материалы
-        </button>
+      }
     </div>
+    <button
+      id="show-rate-btn"
+      class="primary-btn fs-16 fw-600 lh-20"
+      (click)="messageService.showError('Материалы недоступны')"
+    >
+      Другие материалы
+    </button>
+  </div>
 </section>
 <section class="section impressions">
-    <div class="container">
-        <p class="subtitle fs-24 fw-400 lh-20">фото отчет</p>
-        <h1 class="title">Делимся впечатлениями</h1>
-        <div class="impression__wrapper">
-            @for (pic of pictures; track pic) {
-            <img [src]=" '/images/' + pic + '.png' " alt="impression-pic">
-            }
-            <button id="pinterest-btn" class="primary-btn fs-16 fw-600 lh-20">Наш pinterest</button>
-        </div>
+  <div class="container">
+    <p class="subtitle fs-24 fw-400 lh-20">фото отчет</p>
+    <h1 class="title">Делимся впечатлениями</h1>
+    <div class="impression__wrapper">
+      @for (pic of pictures; track pic) {
+        <img [src]="'/images/' + pic + '.png'" alt="impression-pic" />
+      }
+      <button id="pinterest-btn" class="primary-btn fs-16 fw-600 lh-20">Наш pinterest</button>
     </div>
+  </div>
 </section>

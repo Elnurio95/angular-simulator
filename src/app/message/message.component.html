@@ -1,18 +1,17 @@
 <div class="messages-wrapper">
-  @for (message of (messageManageService.messages$ | async); track message.id) {
+  @for (message of messageManageService.messages$ | async; track message.id) {
     <ng-container
       [ngTemplateOutlet]="messageTemplate"
-      [ngTemplateOutletContext]="{ $implicit: message }">
+      [ngTemplateOutletContext]="{ $implicit: message }"
+    >
     </ng-container>
   }
-</div> 
+</div>
 
 <ng-template #messageTemplate let-message let-index="index">
   <div class="message" [ngClass]="message.type">
     <span>{{ message.message }}</span>
 
-    <button class="close-btn" (click)="closeMessage(index)">
-      ✕
-    </button>
+    <button class="close-btn" (click)="closeMessage(index)">✕</button>
   </div>
 </ng-template>

@@ -1,8 +1,8 @@
 export interface IBlog {
-    id: number; 
-    blogImg: string;
-    mainTitle: string; 
-    desc: string; 
-    date: string;
-    link: string;
+  id: number;
+  blogImg: string;
+  mainTitle: string;
+  desc: string;
+  date: string;
+  link: string;
 }

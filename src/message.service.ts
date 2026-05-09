@@ -4,13 +4,12 @@ import { Message } from './enums/Message';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MessageService {
+  private messagesSubject: BehaviorSubject<IMessage[]> = new BehaviorSubject<IMessage[]>([]);
 
-  private messagesSubject: BehaviorSubject<IMessage[]> = new BehaviorSubject<IMessage[]>([]); 
-
-  messages$: Observable<IMessage[]> = this.messagesSubject.asObservable(); 
+  messages$: Observable<IMessage[]> = this.messagesSubject.asObservable();
 
   showSuccess(message: string): void {
     this.addMessage(message, Message.SUCCESS);
@@ -30,22 +29,21 @@ export class MessageService {
 
   closeMessage(id: number): void {
     this.messagesSubject.next(
-      this.messagesSubject.value.filter((message: IMessage) => message.id !== id)
-    ); 
+      this.messagesSubject.value.filter((message: IMessage) => message.id !== id),
+    );
   }
 
-  private addMessage(message: string, type: string) : void {
+  private addMessage(message: string, type: string): void {
     const newMessage: IMessage = {
       id: Date.now(),
       message,
-      type
+      type,
     };
 
-    this.messagesSubject.next([...this.messagesSubject.value, newMessage]); 
+    this.messagesSubject.next([...this.messagesSubject.value, newMessage]);
 
     setTimeout(() => {
-      this.closeMessage(newMessage.id)
+      this.closeMessage(newMessage.id);
     }, 3000);
   }
-  
 }

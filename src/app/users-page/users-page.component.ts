@@ -13,11 +13,10 @@ import { UserApiService } from '../../user-api.service';
   styleUrl: './users-page.component.scss',
 })
 export class UsersPageComponent {
-
   userApiService: UserApiService = inject(UserApiService);
   messageService: MessageService = inject(MessageService);
   loaderService: LoaderService = inject(LoaderService);
-  
+
   private usersSubject: BehaviorSubject<IUser[]> = new BehaviorSubject<IUser[]>([]);
   users$: Observable<IUser[]> = this.usersSubject.asObservable();
 
@@ -29,11 +28,10 @@ export class UsersPageComponent {
     return this.users$;
   }
 
-    loadUsers(): Observable<IUser[]> {
+  loadUsers(): Observable<IUser[]> {
     this.loaderService.showLoader();
 
-    return this.userApiService.getUsers()
-    .pipe(
+    return this.userApiService.getUsers().pipe(
       tap((users: IUser[]) => {
         this.setUsers(users);
       }),
@@ -46,5 +44,4 @@ export class UsersPageComponent {
       }),
     );
   }
-
 }

@@ -1,3 +1,3 @@
 export interface IPicture {
-    picture: string;  
+  picture: string;
 }
