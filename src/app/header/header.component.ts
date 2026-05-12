@@ -12,6 +12,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
+  
   companyName: string = 'румтибет';
   widget: WidgetType = 'date';
   today: Date = new Date();
@@ -37,5 +38,5 @@ export class HeaderComponent {
     { path: '/', label: 'Главная' }, 
     { path: '/users', label: 'Пользователи' }, 
   ]
-  
+
 }

@@ -11,13 +11,12 @@
       </div>
       @for (nav of navigation; track nav.path) {
         <nav class="nav">
-          <a routerLink="" id="nav-link-main">Главная</a>
           <a
             routerLink="users"
             routerLinkActive="active-link"
             id="nav-link-guide"
-            [routerLinkActiveOptions]="{ exact: true }"
-            >Пользователи</a
+            [routerLinkActiveOptions]="{ exact: nav.path === '/'}"
+            >{{ nav.label }}</a
           >
         </nav>
       }
