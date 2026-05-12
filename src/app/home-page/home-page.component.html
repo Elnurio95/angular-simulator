@@ -243,7 +243,7 @@
     <p class="subtitle fs-24 fw-400 lh-20">фото отчет</p>
     <h1 class="title">Делимся впечатлениями</h1>
     <div class="impression__wrapper">
-      @for (pic of pictures; track pic) {
+      @for (pic of pictures; track $index) {
         <img [src]="'/images/' + pic + '.png'" alt="impression-pic" />
       }
       <button id="pinterest-btn" class="primary-btn fs-16 fw-600 lh-20">Наш pinterest</button>

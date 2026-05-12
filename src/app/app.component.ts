@@ -26,6 +26,7 @@ import { MessageComponent } from './message/message.component';
   providers: [],
 })
 export class AppComponent {
+
   private localStorageService: LocalStorageService = inject(LocalStorageService);
 
   isColor(color: Color): boolean {
@@ -44,4 +45,5 @@ export class AppComponent {
 
     this.localStorageService.setItem(USERS_KEY, visits);
   }
+  
 }

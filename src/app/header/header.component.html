@@ -9,7 +9,7 @@
           <p class="company__name">{{ companyName }}</p>
         </div>
       </div>
-      @for (nav of navigation; track nav.id) {
+      @for (nav of navigation; track nav.path) {
         <nav class="nav">
           <a routerLink="" id="nav-link-main">Главная</a>
           <a

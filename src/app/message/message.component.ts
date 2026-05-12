@@ -11,10 +11,12 @@ import { CommonModule } from '@angular/common';
   styleUrl: './message.component.scss',
 })
 export class MessageComponent {
+
   messageManageService: MessageService = inject(MessageService);
   massages$: Observable<IMessage[]> = this.messageManageService.messages$;
 
   closeMessage(index: number): void {
     this.messageManageService.closeMessage(index);
   }
+  
 }

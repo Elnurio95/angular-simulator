@@ -7,6 +7,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class MessageService {
+
   private messagesSubject: BehaviorSubject<IMessage[]> = new BehaviorSubject<IMessage[]>([]);
 
   messages$: Observable<IMessage[]> = this.messagesSubject.asObservable();
@@ -46,4 +47,5 @@ export class MessageService {
       this.closeMessage(newMessage.id);
     }, 3000);
   }
+  
 }

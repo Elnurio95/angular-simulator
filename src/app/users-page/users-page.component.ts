@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { MessageService } from '../../message.service';
 import { LoaderService } from '../../loader.service';
 import { IUser } from '../../interfaces/IUser';
-import { BehaviorSubject, catchError, finalize, Observable, of, tap } from 'rxjs';
-import { UserApiService } from '../../user-api.service';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { UserService } from '../../user.service';
 
 @Component({
   selector: 'app-users-page',
@@ -13,9 +13,10 @@ import { UserApiService } from '../../user-api.service';
   styleUrl: './users-page.component.scss',
 })
 export class UsersPageComponent {
-  userApiService: UserApiService = inject(UserApiService);
+
   messageService: MessageService = inject(MessageService);
   loaderService: LoaderService = inject(LoaderService);
+  userService: UserService = inject(UserService); 
 
   private usersSubject: BehaviorSubject<IUser[]> = new BehaviorSubject<IUser[]>([]);
   users$: Observable<IUser[]> = this.usersSubject.asObservable();
@@ -28,20 +29,12 @@ export class UsersPageComponent {
     return this.users$;
   }
 
-  loadUsers(): Observable<IUser[]> {
-    this.loaderService.showLoader();
-
-    return this.userApiService.getUsers().pipe(
-      tap((users: IUser[]) => {
-        this.setUsers(users);
-      }),
-      catchError((error) => {
-        this.messageService.showError(`Ошибка при загрузке пользователей ${error}`);
-        return of([]);
-      }),
-      finalize(() => {
-        this.loaderService.hideLoader();
-      }),
-    );
+  constructor() {
+    this.userService.loadUsers()
+      .pipe(
+        tap( (users: IUser[]) => this.userService.setUsers(users) )
+      )
+    .subscribe();
   }
+
 }

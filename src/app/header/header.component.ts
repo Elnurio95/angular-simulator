@@ -24,7 +24,7 @@ export class HeaderComponent {
       this.today = new Date();
     }, 1000);
 
-    setInterval(() => {
+    setTimeout(() => {
       this.isLoading = false;
     }, 2000);
   }
@@ -34,10 +34,8 @@ export class HeaderComponent {
   }
 
   navigation: INavigation[] = [
-    {
-      id: 1,
-      main: 'Главная',
-      users: 'Пользователи',
-    },
-  ];
+    { path: '/', label: 'Главная' }, 
+    { path: '/users', label: 'Пользователи' }, 
+  ]
+  
 }

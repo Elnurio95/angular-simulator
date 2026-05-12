@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './home-page.component.scss',
 })
 export class HomePageComponent {
+
   messageService: MessageService = inject(MessageService);
 
   tourLocation: string = '';
@@ -125,4 +126,5 @@ export class HomePageComponent {
   closeMessage(index: number): void {
     this.messageService.closeMessage(index);
   }
+  
 }

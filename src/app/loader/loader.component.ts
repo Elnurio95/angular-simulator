@@ -10,6 +10,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './loader.component.scss',
 })
 export class LoaderComponent {
+
   loaderService: LoaderService = inject(LoaderService);
   isLoaded$: Observable<boolean> = this.loaderService.loader$;
+  
 }

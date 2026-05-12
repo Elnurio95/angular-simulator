@@ -1,4 +1,4 @@
-import { Component, Input, input } from '@angular/core';
+import { Component, EventEmitter, Input, input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-child',
@@ -7,5 +7,12 @@ import { Component, Input, input } from '@angular/core';
   styleUrl: './child.component.scss',
 })
 export class ChildComponent {
+
   @Input() name!: string;
+  @Output() clicked = new EventEmitter(); 
+  
+  notify() {
+    this.clicked.emit(); 
+  }
+
 }
