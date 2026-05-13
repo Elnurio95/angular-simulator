@@ -12,7 +12,7 @@
       @for (nav of navigation; track nav.path) {
         <nav class="nav">
           <a
-            routerLink="users"
+            [routerLink]="nav.path"
             routerLinkActive="active-link"
             id="nav-link-guide"
             [routerLinkActiveOptions]="{ exact: nav.path === '/'}"
