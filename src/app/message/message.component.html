@@ -1,5 +1,5 @@
 <div class="messages-wrapper">
-  @for (message of messageManageService.messages$ | async; track message.id) {
+  @for (message of massages$ | async; track message.id) {
     <ng-container
       [ngTemplateOutlet]="messageTemplate"
       [ngTemplateOutletContext]="{ $implicit: message }"

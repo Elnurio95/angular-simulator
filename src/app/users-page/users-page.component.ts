@@ -25,10 +25,6 @@ export class UsersPageComponent {
     this.usersSubject.next(users);
   }
 
-  getUsers(): Observable<IUser[]> {
-    return this.users$;
-  }
-
   constructor() {
     this.userService.loadUsers()
       .pipe(
