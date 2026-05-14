@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LocalStorageService {
 
@@ -21,5 +21,5 @@ export class LocalStorageService {
   clear(): void {
     localStorage.clear();
   }
-
+  
 }

@@ -3,21 +3,30 @@ import { Color } from '../enums/Color';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { LocalStorageService } from '../local-storage.service';
-import { RouterOutlet } from "@angular/router";
-import { HeaderComponent } from "./header/header.component";
-import { FooterComponent } from "./footer/footer.component";
-
+import { RouterOutlet } from '@angular/router';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { LoaderComponent } from './loader/loader.component';
+import { MessageComponent } from './message/message.component';
 
 @Component({
   selector: 'app-root',
-  imports: [FormsModule, CommonModule, HeaderComponent, FooterComponent, RouterOutlet],
+  imports: [
+    FormsModule,
+    CommonModule,
+    HeaderComponent,
+    FooterComponent,
+    RouterOutlet,
+    LoaderComponent,
+    MessageComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   standalone: true,
-  providers: []
+  providers: [],
 })
 export class AppComponent {
-  
+
   private localStorageService: LocalStorageService = inject(LocalStorageService);
 
   isColor(color: Color): boolean {
@@ -36,5 +45,5 @@ export class AppComponent {
 
     this.localStorageService.setItem(USERS_KEY, visits);
   }
-
+  
 }

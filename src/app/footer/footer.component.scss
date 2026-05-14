@@ -1,7 +1,7 @@
 .footer {
   position: relative;
   color: var(--secondary-background-color);
-  background-color: #1A3E3E;
+  background-color: #1a3e3e;
 }
 
 .footer__input {
@@ -95,7 +95,7 @@
 
 .subscribe-input {
   border: none;
-  background-color: #F3F5F4;
+  background-color: #f3f5f4;
 }
 
 input::placeholder {
@@ -103,18 +103,17 @@ input::placeholder {
   font-weight: 300;
   line-height: 20px;
   font-style: light;
-  color: #18121E;
+  color: #18121e;
   padding-left: 12px;
 }
 
 .subsc-desc {
-  color: #18121E;
+  color: #18121e;
 }
 
 #subsc-link {
-  color: #18121E;
+  color: #18121e;
 }
-
 
 .legal__owner {
   display: flex;
@@ -124,12 +123,12 @@ input::placeholder {
   height: 66px;
 }
 
-#legalName {
-  text-decoration: none; 
+#legal-name {
+  text-decoration: none;
   list-style-type: none;
 }
 
-#legalRules {
-  text-decoration: none; 
+#legal-rules {
+  text-decoration: none;
   list-style-type: none;
 }

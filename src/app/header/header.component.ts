@@ -3,7 +3,7 @@ import { WidgetType } from '../../Types/WidgetType';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { INavigation } from '../../interfaces/INavigation';
-import { RouterLink, RouterLinkActive } from "@angular/router";
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -12,43 +12,31 @@ import { RouterLink, RouterLinkActive } from "@angular/router";
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
-
+  
   companyName: string = 'румтибет';
-  tourLocation: string = ''; 
-  tourDate: string = ''; 
-  tourParticipant: string = '';
-  widget: WidgetType = 'date'; 
-  today: Date = new Date(); 
-  liveInputValue: string = ''; 
-  counter: number = 0; 
-  isLoading: boolean = true; 
-  count: boolean = false; 
-  isDateActive: boolean = false;
+  widget: WidgetType = 'date';
+  today: Date = new Date();
+  counter: number = 0;
+  isLoading: boolean = true;
+  count: boolean = false;
 
   constructor() {
     setInterval(() => {
       this.today = new Date();
     }, 1000);
-  
-    setInterval(() => {
-      this.isLoading = false; 
-    }, 2000)
+
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 2000);
   }
 
   toggleWidget(widget: WidgetType): void {
-    this.widget = widget; 
+    this.widget = widget;
   }
 
-  get isFormInvalid(): boolean {
-    return !this.tourLocation || !this.tourDate || !this.tourParticipant;
-  }
-  
   navigation: INavigation[] = [
-    {
-      id: 1, 
-      main: 'Главная', 
-      users: 'Пользователи'
-    }
+    { path: '/', label: 'Главная' }, 
+    { path: '/users', label: 'Пользователи' }, 
   ]
-  
+
 }

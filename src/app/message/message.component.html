@@ -1,1 +1,17 @@
-<p>message works!</p>
+<div class="messages-wrapper">
+  @for (message of massages$ | async; track message.id) {
+    <ng-container
+      [ngTemplateOutlet]="messageTemplate"
+      [ngTemplateOutletContext]="{ $implicit: message }"
+    >
+    </ng-container>
+  }
+</div>
+
+<ng-template #messageTemplate let-message let-index="index">
+  <div class="message" [ngClass]="message.type">
+    <span>{{ message.message }}</span>
+
+    <button id="close-btn" (click)="closeMessage(index)">✕</button>
+  </div>
+</ng-template>

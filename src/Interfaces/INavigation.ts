@@ -1,5 +1,4 @@
 export interface INavigation {
-    id: number; 
-    main: string;
-    users: string;
+  path: string; 
+  label: string; 
 }
